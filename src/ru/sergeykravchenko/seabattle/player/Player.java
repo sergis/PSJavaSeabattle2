@@ -23,18 +23,18 @@ import ru.sergeykravchenko.seabattle.uicontroller.UIController;
   *
  */
 public class Player {
-    public static final byte // Команды/состояния пользовательского интерфейса игрока
-    //  параметры команд будут передаваться в сопутствующем массиве параметров
-             PLAYER_QUIT = 0, PLAYER_STOP = 1,
-             PLAYER_WAIT = 2, PLAYER_START = 3,
-             PLAYER_SETSHIP = 4, PLAYER_SETFIELD = 5,
-             PLAYER_SETNAME = 6;
-    protected byte cmdPlayer = PLAYER_WAIT;
+
+    public enum PlayerMode {WAIT, START, QUIT, STOP,// Команды/состояния пользовательского интерфейса игрока
+                            SETSHIP, SETFIELD,      //  параметры команд будут передаваться 
+                              SETNAME               //в сопутствующем массиве параметров
+    }
+    protected PlayerMode cmdPlayer = PlayerMode.WAIT;
     protected UIController hPlayerUI;
     protected String playerName;
     protected short playerSeaSize = 10;
     protected SeaField playerSea;
-    protected String [] coordinateNameSea; // массив обозначений координат игрового поля
+    protected String [] coordinateNameSea; // массив обозначений координат игрового поля 
+
     protected GameSeaBattle hGame;
     protected boolean isObserver;
     //
@@ -49,10 +49,10 @@ public class Player {
     public	void tunePlayer(){
         System.out.println (playerName+":Tuner cmd "+ cmdPlayer);
         switch (cmdPlayer){
-            case PLAYER_WAIT: // no command detected
+            case WAIT: // no command detected
 
                 break;
-            case PLAYER_START: // all tunes done, start the game
+            case START: // all tunes done, start the game
                 if ( playerSeaSize<=5) {
                     System.out.println ("Game Player Sea Size invalid, reset to default =10 :"+playerName);
                     playerSeaSize=10;
@@ -61,19 +61,20 @@ public class Player {
                 coordinateNameSea = new String[2];
                 coordinateNameSea[1] ="ABCDEFGHIJKLMNOPQRSTVWXYZ0123456789";
                 coordinateNameSea[2] ="0123456789ABCDEFGHIJKLMNOPQRSTVWXYZ";
+
                 break;
-            case PLAYER_SETSHIP:
+            case SETSHIP:
 
 
                 break;
-            case PLAYER_SETFIELD:
+
+            case SETFIELD:
                 if ( playerSeaSize<=5) {
                     System.out.println("Game Player Sea Size=" + playerSeaSize + " invalid, please set again :");
                 playerSeaSize=10;
                 }
-
                 break;
-            case PLAYER_SETNAME :
+            case SETNAME:
                 if (hPlayerUI!=null) {
                     playerName += "Human";
                 }

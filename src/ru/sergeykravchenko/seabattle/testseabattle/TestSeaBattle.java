@@ -21,17 +21,18 @@ import ru.sergeykravchenko.seabattle.uicontroller.UIController;
   *
  */
 public class TestSeaBattle {
-    private static final short[] testCmdQueue;
-    private static final byte[] testPlayerCmdQueue;
+    private static final UIController.InstanceMode[] testCmdQueue;
+    private static final Player.PlayerMode[] testPlayerCmdQueue;
 
     static {
-        testCmdQueue = new short[]{UIController.CMD_TUNER, UIController.CMD_START,
-                UIController.CMD_PLAY, UIController.CMD_PLAY,
-                UIController.CMD_STOP, UIController.CMD_QUIT};
-        testPlayerCmdQueue = new byte[] {
-                Player.PLAYER_WAIT, Player.PLAYER_SETNAME,
-                Player.PLAYER_SETSHIP, Player.PLAYER_SETSHIP,
-                Player.PLAYER_WAIT, Player.PLAYER_START
+        testCmdQueue = new UIController.InstanceMode[]{UIController.InstanceMode.TUNER,
+                UIController.InstanceMode.START,
+                UIController.InstanceMode.PLAY, UIController.InstanceMode.PLAY,
+                UIController.InstanceMode.STOP, UIController.InstanceMode.QUIT};
+        testPlayerCmdQueue = new Player.PlayerMode[] {
+                Player.PlayerMode.WAIT, Player.PlayerMode.SETNAME,
+                Player.PlayerMode.SETSHIP, Player.PlayerMode.SETSHIP,
+                Player.PlayerMode.WAIT, Player.PlayerMode.START
         } ;
     }
     private short testCmdNext, testPlayerCmdNext;
@@ -41,23 +42,23 @@ public class TestSeaBattle {
         System.out.println("Test SeaBattle started");
     }
 
-    public short getTestCmd() {
-        short nextCmd;
+    public UIController.InstanceMode getTestCmd() {
+        UIController.InstanceMode nextCmd;
         System.out.println("Get Test Command:started");
         if (testCmdNext < testCmdQueue.length) {
             nextCmd = testCmdQueue[testCmdNext];
             testCmdNext++;
-        } else nextCmd = UIController.CMD_QUIT; //
+        } else nextCmd = UIController.InstanceMode.QUIT; //
         System.out.println("Test Send Command:#" + nextCmd);
         return (nextCmd);
     }
-    public byte getTestPlayerCmd() {
-        byte nextCmd;
+    public Player.PlayerMode getTestPlayerCmd() {
+        Player.PlayerMode nextCmd;
         System.out.println("Get Test Player Command started");
         if (testPlayerCmdNext < testPlayerCmdQueue.length) {
             nextCmd = testPlayerCmdQueue[testPlayerCmdNext];
             testPlayerCmdNext++;
-        } else nextCmd = Player.PLAYER_QUIT; //
+        } else nextCmd = Player.PlayerMode.QUIT; //
         System.out.println("Test Player Send Command:#" + nextCmd);
         return (nextCmd);
     }

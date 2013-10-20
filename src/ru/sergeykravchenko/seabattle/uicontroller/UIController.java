@@ -20,15 +20,19 @@ package ru.sergeykravchenko.seabattle.uicontroller;
 import ru.sergeykravchenko.seabattle.player.Player;
 import ru.sergeykravchenko.seabattle.testseabattle.TestSeaBattle;
 
+import static ru.sergeykravchenko.seabattle.uicontroller.UIController.InstanceMode.*;
+
 public class UIController {
     /*
     *
     */
-    public static final short  CMD_QUIT = 0,
-    CMD_STOP=1,CMD_START=2,CMD_PLAY=3,CMD_TUNER=4;
-    private short nextCmd;
-    private Byte[] playerCmdQueue = {Player.PLAYER_WAIT, Player.PLAYER_WAIT};
-    private byte playerCmd = Player.PLAYER_WAIT;
+    public enum InstanceMode {QUIT, STOP,
+        START, PLAY, TUNER
+    }
+
+    private InstanceMode nextCmd;
+    private Player.PlayerMode[] playerCmdQueue = {Player.PlayerMode.WAIT, Player.PlayerMode.WAIT};
+    private Player.PlayerMode playerCmd = Player.PlayerMode.WAIT;
     private boolean modeTesting;
     private TestSeaBattle hTestSeaBattle;
     /*
@@ -41,6 +45,7 @@ public class UIController {
         if (modeTesting) {
             hTestSeaBattle = new TestSeaBattle();
         }
+        nextCmd = START;
         //boolean mode;
 
 
@@ -66,10 +71,10 @@ public class UIController {
     *  если задан тестовый режим, то команды поставляются из тест-контроллера hTestSeaBattle. ,
     *  в боевом режиме определяются очередью команд, формируемой на основе команд игроков, и событий в приложении
     */
-     public short getInstanceMode() {
+     public InstanceMode getInstanceMode() {
         if (modeTesting&&(hTestSeaBattle!=null)) {
             nextCmd = hTestSeaBattle.getTestCmd();
-        } else nextCmd = UIController.CMD_QUIT;
+        } else nextCmd = InstanceMode.QUIT;
 
         System.out.println("Get command queue received:" + nextCmd);
         return (nextCmd);
@@ -83,14 +88,17 @@ public class UIController {
                 {"VIEW QUIT", "VIEW OVER",
                         "VIEW_START", "VIEW_STEP"};
         //System.out.println ("Game View render");
+
         /* отрисовка сцены (координаты, рамки, блоки сообщений, кнопки, ) */
-        short viewPointer = UIController.CMD_TUNER;
+
+        InstanceMode viewPointer = TUNER;
+
         switch (viewPointer) {
-            case UIController.CMD_TUNER: renderTunes(hhPlayer);
-            case UIController.CMD_PLAY:
-            case UIController.CMD_START: renderSeaField(hhPlayer);
-            case UIController.CMD_STOP:
-            case UIController.CMD_QUIT:
+            case TUNER: renderTunes(hhPlayer);
+            case PLAY:
+            case START: renderSeaField(hhPlayer);
+            case STOP:
+            case QUIT:
                 System.out.println(" View rendered for Player:" + hhPlayer.getPlayerName() );
                 break;
 
@@ -139,18 +147,18 @@ public class UIController {
      *   Получает следующую команду от Игрока
      */
 
-    public byte getPlayerCmdNext() {
-        int i; byte playerCmd;
+    public Player.PlayerMode getPlayerCmdNext() {
+        int i; Player.PlayerMode playerCmd;
         playerCmd = playerCmdQueue[0];
         for (i=0;i< playerCmdQueue.length-1;i++)
            playerCmdQueue[i] = playerCmdQueue[i+1];
-        playerCmdQueue[playerCmdQueue.length-1]=Player.PLAYER_WAIT; //* Empty cell always wait
+        playerCmdQueue[playerCmdQueue.length-1]=Player.PlayerMode.WAIT; //* Empty cell always wait
         return playerCmd;
     }
     /*
      *  записывает внеочередную команду для игрока
      */
-    public void pushPlayerCmdStack( byte nextCmd) {
+    public void pushPlayerCmdStack( Player.PlayerMode nextCmd) {
         int i;
         //* No overflow check yet
         for (i= playerCmdQueue.length-1;i>0;i--)
@@ -160,11 +168,11 @@ public class UIController {
     /*
      *  записывает очередную команду для игрока
      */
-    public void addPlayerCmdNext( byte nextCmd) {
+    public void addPlayerCmdNext( Player.PlayerMode nextCmd) {
         int i;
         //* No overflow check yet
         for (i=0;i< playerCmdQueue.length;i++) {
-            if (playerCmdQueue[i] == Player.PLAYER_WAIT) {
+            if (playerCmdQueue[i] == Player.PlayerMode.WAIT) {
                 playerCmdQueue[i] = nextCmd;
             }
         }
