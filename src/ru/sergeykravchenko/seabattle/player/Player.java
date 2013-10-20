@@ -23,13 +23,14 @@ import ru.sergeykravchenko.seabattle.uicontroller.UIController;
   *
  */
 public class Player {
-    public static final byte PLAYER_QUIT = 0, PLAYER_STOP = 1,PLAYER_WAIT = 2, PLAYER_START = 3,
-             PLAYER_SETSHIP = 4, PLAYER_SETFIELD = 5,
-             PLAYER_SETNAME = 6;
-    protected byte cmdPlayer = PLAYER_WAIT;
+    public enum PlayerMode {WAIT, START, QUIT, STOP,
+        SETSHIP, SETFIELD,
+        SETNAME
+    }
+    protected PlayerMode cmdPlayer = PlayerMode.WAIT;
     protected UIController hPlayerUI;
     public String playerName;
-    SeaField playerSea;
+    protected SeaField playerSea;
     protected GameSeaBattle hGame;
     protected boolean isObserver;
 
@@ -44,19 +45,19 @@ public class Player {
     public	void tunePlayer(){
         System.out.println (playerName+":Tuner cmd "+ cmdPlayer);
         switch (cmdPlayer){
-            case PLAYER_WAIT:
+            case WAIT:
 
                 break;
-            case PLAYER_START:
+            case START:
                 break;
-            case PLAYER_SETSHIP:
+            case SETSHIP:
 
 
                 break;
-            case PLAYER_SETFIELD:
+            case SETFIELD:
 
                 break;
-            case PLAYER_SETNAME :
+            case SETNAME:
                 if (hPlayerUI!=null) {
                     playerName += "Human";
                 }

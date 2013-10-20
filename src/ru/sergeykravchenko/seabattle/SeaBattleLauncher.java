@@ -25,6 +25,8 @@ import ru.sergeykravchenko.seabattle.gameseabattle.GameSeaBattle;
 import ru.sergeykravchenko.seabattle.player.Player;
 import ru.sergeykravchenko.seabattle.uicontroller.UIController;
 
+import static ru.sergeykravchenko.seabattle.uicontroller.UIController.InstanceMode.START;
+
 public class SeaBattleLauncher {
 
 	public static void main(String[] args) {
@@ -38,28 +40,28 @@ public class SeaBattleLauncher {
 		hInstance = new UIController(modeTesting);
 		hPlayer   = new Player(hInstance);
 		hComputer = new ComputerPlayer(hInstance);
-		short currentCommand = UIController.CMD_TUNER;		
+		UIController.InstanceMode currentCommand = UIController.InstanceMode.TUNER;
 		do { 
 				switch (currentCommand) {
-				case UIController.CMD_TUNER:
+				case TUNER:
 					   hPlayer.tunePlayer();
 					break;
-				case UIController.CMD_START:
+				case START:
 					if (hSeaBattle == null)
 					   hSeaBattle = new GameSeaBattle(hPlayer,hComputer); 
 					break;
-				case UIController.CMD_PLAY:
+				case PLAY:
 					if (hSeaBattle != null) {
 						hSeaBattle.playGame(hPlayer,hComputer);	
 					};
 		
 					break;	
-				case UIController.CMD_STOP:
+				case STOP:
 					if (hSeaBattle != null) {
 						hSeaBattle.stopGame(hPlayer,hComputer);
 					}
                     break; 
-				case UIController.CMD_QUIT:
+				case QUIT:
 					if (hSeaBattle != null) {
 						hSeaBattle.quitGame(hPlayer,hComputer);
 					}
@@ -72,7 +74,7 @@ public class SeaBattleLauncher {
 			hInstance.renderView(hComputer); // show Computer's display to observer if any
 			currentCommand = hInstance.getInstanceMode();
 		}		
-		while (currentCommand!=UIController.CMD_QUIT);
+		while (currentCommand!=UIController.InstanceMode.QUIT);
 		
 		}
 	
