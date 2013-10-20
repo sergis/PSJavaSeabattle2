@@ -4,8 +4,8 @@ import ru.sergeykravchenko.seabattle.player.Player;
  * *   Java 1 Course work (IntelliJ Idea)
  * <h4>Java 1 Lesson 3 Домашнее задание/курсовая работа</h4>
  * <p>Класс реализующий правила игры  Морской бой. контроллер модели (MVC)</p>
- * <p>предназначен для реализации всех методов и свойств связанных со реализацией правил собственно игры /p>
- * <p>все настройки д.б. вынесены в класс управления настройками игры, здесь - только реализация уже заданных параметров    </p>
+ * <p>предназначен для реализации всех методов и свойств связанных с реализацией правил игры /p>
+ * <p>все настройки д.б. вынесены в класс управления настройками игры, здесь - только реализация уже заданных параметров</p>
  * <p>   </p>
  * <p>методы : </p> <ul>
  * <li>конструктор: запоминает играющих, инициализирует игровое поле, рейд с кораблями, устанавливает статус "настройка" </li>
@@ -35,13 +35,13 @@ public class GameSeaBattle {
             hhPlayers[0] = hPlayer1;
 		    hhPlayers[1] = hPlayer2;
             nextStepPlayer = 0;
-            seaSize = 10; // Default SeaSize
+            seaSize = 10;        // Default SeaSize
             flotShipDecks = new Short[10];
             flotShipDecks[0]=4;  // 4 decks ship = 1
             flotShipDecks[1]=3; flotShipDecks[2]=3;  // 3 decks ship = 2
             flotShipDecks[3]=2; flotShipDecks[4]=2;flotShipDecks[5]=2; // 2 decks ship = 3
             flotShipDecks[6]=1;flotShipDecks[7]=1; flotShipDecks[8]=1;flotShipDecks[9]=1;// 1 decks ship = 4
-		    System.out.println ("Game SeaBattle Controller started with 2 players");
+		    System.out.println ("Game SeaBattle Controller started with 2 players and 10 ships");
 	    }else {
             System.out.println("Game SeaBattle Controller aborted, invalid Players");
         }

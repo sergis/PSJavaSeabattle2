@@ -13,7 +13,7 @@ import ru.sergeykravchenko.seabattle.uicontroller.UIController;
  * <p> MVC: класс контроллера интерфейса  игры</p>
  * <p>методы : </p> <ul>
  * <li>конструктор: инициализирует данные об игроке, задает имя, статус активности (наблюдатель или нет)
- * <li> tunePlayer(): позволяет проверить и установить настройки игры задаваемые игроком </li>
+ * <li> tunePlayer(): позволяет проверить и установить настройки игры задаваемые игроком, в т.ч. расстановку кораблей </li>
  * <li> TODO: ___():</li>
  * <ul>
  * @author Sergey Kravchenko
@@ -23,37 +23,54 @@ import ru.sergeykravchenko.seabattle.uicontroller.UIController;
   *
  */
 public class Player {
-    public static final byte PLAYER_QUIT = 0, PLAYER_STOP = 1,PLAYER_WAIT = 2, PLAYER_START = 3,
+    public static final byte // Команды/состояния пользовательского интерфейса игрока
+    //  параметры команд будут передаваться в сопутствующем массиве параметров
+             PLAYER_QUIT = 0, PLAYER_STOP = 1,
+             PLAYER_WAIT = 2, PLAYER_START = 3,
              PLAYER_SETSHIP = 4, PLAYER_SETFIELD = 5,
              PLAYER_SETNAME = 6;
     protected byte cmdPlayer = PLAYER_WAIT;
     protected UIController hPlayerUI;
-    public String playerName;
-    SeaField playerSea;
+    protected String playerName;
+    protected short playerSeaSize = 10;
+    protected SeaField playerSea;
+    protected String [] coordinateNameSea; // массив обозначений координат игрового поля
     protected GameSeaBattle hGame;
     protected boolean isObserver;
-
+    //
     public Player(UIController hInstance) {
         hGame = null;
         playerName = "Player-";
         hPlayerUI = hInstance;
-        isObserver = false;
+        isObserver = false; //  =true для игрока-компьютера и зарезервировано для игроков-зрителей
         System.out.println ("Game Player Controller started:"+playerName);
     }
-
+    //
     public	void tunePlayer(){
         System.out.println (playerName+":Tuner cmd "+ cmdPlayer);
         switch (cmdPlayer){
-            case PLAYER_WAIT:
+            case PLAYER_WAIT: // no command detected
 
                 break;
-            case PLAYER_START:
+            case PLAYER_START: // all tunes done, start the game
+                if ( playerSeaSize<=5) {
+                    System.out.println ("Game Player Sea Size invalid, reset to default =10 :"+playerName);
+                    playerSeaSize=10;
+                }
+                playerSea= new SeaField(playerSeaSize);
+                coordinateNameSea = new String[2];
+                coordinateNameSea[1] ="ABCDEFGHIJKLMNOPQRSTVWXYZ0123456789";
+                coordinateNameSea[2] ="0123456789ABCDEFGHIJKLMNOPQRSTVWXYZ";
                 break;
             case PLAYER_SETSHIP:
 
 
                 break;
             case PLAYER_SETFIELD:
+                if ( playerSeaSize<=5) {
+                    System.out.println("Game Player Sea Size=" + playerSeaSize + " invalid, please set again :");
+                playerSeaSize=10;
+                }
 
                 break;
             case PLAYER_SETNAME :
@@ -67,9 +84,16 @@ public class Player {
 
         System.out.println (playerName+":Tuner DONE. next cmd "+ cmdPlayer);
         }
+
     public void setPlayerSea (SeaField playerSea) {
         this.playerSea = playerSea;
         }
+    public String[] getCoordNameSea () {
+        return this.coordinateNameSea;
+    }
+    public SeaField getPlayerSea () {
+        return this.playerSea;
+    }
     boolean isObserver() {
         return isObserver;
         }
@@ -81,4 +105,7 @@ public class Player {
         return playerName;}
 
 
+    public short getPlayerSeaSize() {
+        return playerSeaSize;
+    }
 }

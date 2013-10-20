@@ -3,14 +3,14 @@ package ru.sergeykravchenko.seabattle.uicontroller;
  * *   Java 1 Course work (IntelliJ Idea)
  * <h4>Java 1 Lesson 3 Домашнее задание/курсовая работа</h4>
  * <p>Класс Управления приложением и интерфейса с пользователем для игры Морской бой </p>
- * <p>Цель: предназначен для реализации всех функций и данных связанных со средой исполнения и интерфейсом с пользолателем игры/p>
+ * <p>Предназначен для реализации всех функций и данных связанных со средой исполнения и интерфейсом с пользолателем игры/p>
  * <p> Front & View Controller  патерна MVC   </p>
  * <p>методы : </p>
  * <ul>
  * <li>конструктор: запускает связь с интерфесами, инициализирует приложение, библиотеки, тестовый режим</li>
- * <li>getInstanceMode():  выдает вызывающему код текущего режима работы игры  (настройка, игра, завершение, рестарт</li>
+ * <li>getInstanceMode():  выдает код текущего режима работы игры  (настройка, игра, завершение, рестарт</li>
  * <li>TODO: для отработки команд пользователя и параметров, в режимах Игра, Настройка нужен будет еще метод ???</li>
- * <li> renderView(Player hhPlayer): выполняет отрисовку экрана заданному игроку </li>
+ * <li> renderView(Player hhPlayer): выполняет отрисовку для заданного игрока </li>
  * <ul>
  * @author Sergey Kravchenko
  * @version 0.0
@@ -83,6 +83,7 @@ public class UIController {
                 {"VIEW QUIT", "VIEW OVER",
                         "VIEW_START", "VIEW_STEP"};
         //System.out.println ("Game View render");
+        /* отрисовка сцены (координаты, рамки, блоки сообщений, кнопки, ) */
         short viewPointer = UIController.CMD_TUNER;
         switch (viewPointer) {
             case UIController.CMD_TUNER: renderTunes(hhPlayer);
@@ -96,7 +97,7 @@ public class UIController {
             default:
                 System.out.println("Undefined view, please define VIEW switch");
         }
-
+      // реальный вывод отрисовки 
     }
     /*
     * UIController#renderSeaField(hhPlayer)
@@ -107,7 +108,19 @@ public class UIController {
     * */
     public void renderSeaField(Player hhPlayer ){
 
+
         System.out.println("* * *Игровое поле игрока "+hhPlayer.getPlayerName()+" * * *");
+        String[] coordName;
+         /* отрисовка координатной сетки  */
+        if (hhPlayer.getPlayerSea()!=null) {
+            coordName = hhPlayer.getCoordNameSea();
+            System.out.println("**"+coordName[1]);
+        }
+        /* отрисовка поля  */
+        short i;
+        for (i=0;i<hhPlayer.getPlayerSeaSize();i++)
+            System.out.println("**" /*+ coordName[2][i]*/ + "0123456789" + " *");
+
 
     }
     /*
