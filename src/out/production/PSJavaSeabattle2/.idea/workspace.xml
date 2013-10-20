@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e577fcc-30a6-474f-b050-6c14bc072738" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/GameSeaBattle.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/GameSeaBattle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/Player.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/uicontroller/UIController.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/uicontroller/UIController.java" />
-    </list>
+    <list default="true" id="1e577fcc-30a6-474f-b050-6c14bc072738" name="Default" comment="" />
     <ignored path="src.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382126457066" ignored="false" />
+    <file path="/Dummy.txt" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382292539175" ignored="false" />
     <file path="/fragment.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1381767055495" ignored="false" />
     <file path="/SeaBattleLauncher.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1381756217020" ignored="false" />
     <file path="/GameDB.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1381769976663" ignored="false" />
     <file path="/Player.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382130656631" ignored="false" />
     <file path="/GameSeaBattle.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1381770473831" ignored="false" />
     <file path="/ComputerPlayer.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1381772451758" ignored="false" />
-    <file path="/UIController.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382131117991" ignored="false" />
+    <file path="/UIController.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382132028008" ignored="false" />
     <file path="/TestSeaBattle.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1381773753781" ignored="false" />
     <file path="/SeaField.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1381765862858" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1381785563589" ignored="false" />
@@ -35,6 +31,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -71,7 +68,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -84,7 +80,7 @@
       <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="16" selection-start="3797" selection-end="3802" vertical-scroll-proportion="0.0">
+            <state line="108" column="16" selection-start="3725" selection-end="3730" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -129,10 +125,8 @@
       <file leaf-file-name="SeaBattleLauncher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/SeaBattleLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="64" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="46" column="64" selection-start="1767" selection-end="1767" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,7 +143,7 @@
       <file leaf-file-name="UIController.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/uicontroller/UIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="97" selection-start="4312" selection-end="4312" vertical-scroll-proportion="0.6141236">
+            <state line="120" column="8" selection-start="4212" selection-end="4212" vertical-scroll-proportion="1.3076923">
               <folding />
             </state>
           </provider>
@@ -158,7 +152,7 @@
       <file leaf-file-name="TestSeaBattle.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/testseabattle/TestSeaBattle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="30" selection-start="2021" selection-end="2037" vertical-scroll-proportion="0.0">
+            <state line="54" column="30" selection-start="2244" selection-end="2244" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -368,12 +362,12 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -425,6 +419,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -450,19 +457,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -564,7 +558,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32889965" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925338" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -641,9 +635,7 @@
     <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/SeaBattleLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="0" selection-start="1515" selection-end="1515" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -670,11 +662,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gamedb/GameDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="20" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="13" column="20" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/Ship.java">
@@ -705,7 +693,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/testseabattle/TestSeaBattle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="30" selection-start="2021" selection-end="2037" vertical-scroll-proportion="0.0">
+        <state line="54" column="30" selection-start="2244" selection-end="2244" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -719,10 +707,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/SeaBattleLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="64" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="46" column="64" selection-start="1767" selection-end="1767" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -735,14 +721,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="16" selection-start="3797" selection-end="3802" vertical-scroll-proportion="0.0">
+        <state line="108" column="16" selection-start="3725" selection-end="3730" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/uicontroller/UIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="97" selection-start="4312" selection-end="4312" vertical-scroll-proportion="0.6141236">
+        <state line="120" column="8" selection-start="4212" selection-end="4212" vertical-scroll-proportion="1.3076923">
           <folding />
         </state>
       </provider>

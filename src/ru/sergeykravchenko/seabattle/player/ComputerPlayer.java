@@ -25,7 +25,7 @@ public class ComputerPlayer extends Player {
     public ComputerPlayer(UIController hInstance) {
         super(hInstance);
         isObserver = true; /* No Input needed for Computer Players*/
-        cmdPlayer = PLAYER_START; // No Negotiations with other Players
+        cmdPlayer = PlayerMode.START; // No Negotiations with other Players
         playerName += "Computer";
         System.out.println ("Game Player Controller extended to:"+playerName);
     }

@@ -2,7 +2,11 @@ package ru.sergeykravchenko.seabattle.player;
 
 import ru.sergeykravchenko.seabattle.gameseabattle.GameSeaBattle;
 import ru.sergeykravchenko.seabattle.gameseabattle.SeaField;
+import ru.sergeykravchenko.seabattle.gameseabattle.Ship;
 import ru.sergeykravchenko.seabattle.uicontroller.UIController;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 /*
  *   Java 1 Course work (IntelliJ Idea)
@@ -25,17 +29,18 @@ import ru.sergeykravchenko.seabattle.uicontroller.UIController;
 public class Player {
 
     public enum PlayerMode {WAIT, START, QUIT, STOP,// Команды/состояния пользовательского интерфейса игрока
-                            SETSHIP, SETFIELD,      //  параметры команд будут передаваться 
-                              SETNAME               //в сопутствующем массиве параметров
+                            SETSHIP, SETFIELD,      //  параметры команд будут передаваться
+                            SETNAME               //в сопутствующем массиве параметров
     }
     protected PlayerMode cmdPlayer = PlayerMode.WAIT;
     protected UIController hPlayerUI;
     protected String playerName;
     protected short playerSeaSize = 10;
-    protected SeaField playerSea;
+    protected SeaField[] playerSea = new SeaField[2];
     protected String [] coordinateNameSea; // массив обозначений координат игрового поля 
 
     protected GameSeaBattle hGame;
+    protected ArrayList<Ship> hNavy;  // флот к бою
     protected boolean isObserver;
     //
     public Player(UIController hInstance) {
@@ -43,6 +48,14 @@ public class Player {
         playerName = "Player-";
         hPlayerUI = hInstance;
         isObserver = false; //  =true для игрока-компьютера и зарезервировано для игроков-зрителей
+        coordinateNameSea = new String[2]; // формируем поле координат по умолчанию
+        coordinateNameSea[0] ="ABCDEFGHIJKLMNOPQRSTVWXYZ0123456789";
+        coordinateNameSea[1] ="0123456789ABCDEFGHIJKLMNOPQRSTVWXYZ";
+                        //     0123456789012345678901234567890123456789
+
+        playerSea[0]= new SeaField(playerSeaSize); // Player Sea Field always exists
+        playerSea[1]= new SeaField(playerSeaSize); // Target Sea Field always exists
+
         System.out.println ("Game Player Controller started:"+playerName);
     }
     //
@@ -57,21 +70,32 @@ public class Player {
                     System.out.println ("Game Player Sea Size invalid, reset to default =10 :"+playerName);
                     playerSeaSize=10;
                 }
-                playerSea= new SeaField(playerSeaSize);
-                coordinateNameSea = new String[2];
-                coordinateNameSea[1] ="ABCDEFGHIJKLMNOPQRSTVWXYZ0123456789";
-                coordinateNameSea[2] ="0123456789ABCDEFGHIJKLMNOPQRSTVWXYZ";
-
+                if (hNavy==null)
+                    for (short decks:hGame.getNavyShipDecks()){
+                        hNavy.add(new Ship(decks));
+                    }
+                /*   set ships automatically  */
+                placeShipsAutomatically(playerSea[0]);
                 break;
             case SETSHIP:
-
+                  if (hGame!=null){
+                    if (hNavy==null)
+                       for (short decks:hGame.getNavyShipDecks()){
+                           hNavy.add(new Ship(decks));
+                       }
+                    /* Set Ship as of Player command  */
+                        
+                  }
 
                 break;
 
             case SETFIELD:
-                if ( playerSeaSize<=5) {
+                if (( playerSeaSize<=5)&&(playerSeaSize>35)) {
                     System.out.println("Game Player Sea Size=" + playerSeaSize + " invalid, please set again :");
                 playerSeaSize=10;
+                } else {
+                   playerSea[0]= new SeaField(playerSeaSize);  // new Player Sea Field
+                   playerSea[1]= new SeaField(playerSeaSize);  // new Target Sea Field
                 }
                 break;
             case SETNAME:
@@ -86,14 +110,45 @@ public class Player {
         System.out.println (playerName+":Tuner DONE. next cmd "+ cmdPlayer);
         }
 
-    public void setPlayerSea (SeaField playerSea) {
-        this.playerSea = playerSea;
+  /*  public void setPlayerSea (SeaField playerSea) {
+        this.playerSea[0] = playerSea;
+        }   */
+    protected void placeShipsAutomatically(SeaField playerTheater){
+        Random rndGen = new Random ();
+        // variant 1 random placement ship by ship
+        for (Ship hShip:hNavy) {
+            if ((hShip!=null)&&(playerTheater!=null)) {
+                for (int i = playerSeaSize * playerSeaSize; i > 0; i--) {
+                    int rnd = rndGen.nextInt(playerSeaSize * playerSeaSize - 1);
+                    int x = rnd % playerSeaSize;
+                    int y = rnd / playerSeaSize;
+                    if (placeShip(hShip, playerTheater,x,y))
+                    {
+                        break;
+                    }
+                    ;
+
+                }
+            }
         }
+
+
+
+    }
+    // Placement for one of Ships on the player Sea Field
+    private boolean placeShip(Ship hShip, SeaField playerTheater,int xcoord,int ycoord) {
+
+
+    }
+
     public String[] getCoordNameSea () {
         return this.coordinateNameSea;
     }
     public SeaField getPlayerSea () {
-        return this.playerSea;
+        return this.playerSea[0];
+    }
+    public SeaField getTargetSea () {
+        return this.playerSea[1];
     }
     boolean isObserver() {
         return isObserver;
@@ -104,8 +159,7 @@ public class Player {
     */
     public String getPlayerName() {
         return playerName;}
-
-
+//
     public short getPlayerSeaSize() {
         return playerSeaSize;
     }

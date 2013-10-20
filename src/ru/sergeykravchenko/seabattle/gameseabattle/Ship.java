@@ -20,21 +20,25 @@ package ru.sergeykravchenko.seabattle.gameseabattle;
   *
  */
 public class Ship {
-    public static final byte DECK_GOOD =0, DECK_DESTROYED=1;
+    public enum DeckState {GOOD,DESTROYED};
     private boolean shipInBattle;
     private short decksOnShip;
-    private Byte deck[];
+    private DeckState[] deck;
     private SeaCell[] deckPosition;
 
     public Ship(short decks){
         short i;
         shipInBattle = false; // Корабль на рейде, команда в отпуске
         decksOnShip = decks;
-        deck = new Byte[decks];
+        this.deck = new DeckState[decks];
         deckPosition= new SeaCell[decks];
         for (i=0; i<deck.length; i++){
-            deck[i]=DECK_GOOD;
+            deck[i]=DeckState.GOOD;
             deckPosition[i] = null;
         }
     }
+    public int getDecksOnShip() {
+        return decksOnShip;
+    }
+    //public setShipPosition()
 }

@@ -9,6 +9,7 @@ package ru.sergeykravchenko.seabattle.gameseabattle;
  * <p> </p>
  * <p>методы : </p> <ul>
  * <li>конструктор: запоминает играющих, инициализирует игровое поле, рейд с кораблями, устанавливает статус "настройка" </li>
+ * <li> getCell(): возвращает ссылку на заданную ячейку игрового поля </li>
  * <li>TODO: setShip(): устанавливает корабль на поле игры </li>
  * <li>TODO: shotCell(): принимает выстрел создает игровое поле заданного размера</li>
  * <ul>
@@ -27,4 +28,11 @@ public class SeaField {
         seaSize = size;
         hSeaCell = new SeaCell[size][size];
     }
+/*public boolean isCellEmpty (short x,short y){
+    return (hSeaCell[x][y] == null);
+} */
+// @return ссылка на объект ячейки игрового поля
+public SeaCell getCell(short x, short y){
+    return hSeaCell[x][y];
+}
 }

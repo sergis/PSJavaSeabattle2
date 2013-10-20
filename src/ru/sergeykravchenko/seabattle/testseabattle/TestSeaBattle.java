@@ -54,7 +54,7 @@ public class TestSeaBattle {
     }
     public Player.PlayerMode getTestPlayerCmd() {
         Player.PlayerMode nextCmd;
-        System.out.println("Get Test Player Command started");
+    //    System.out.println("Get Test Player Command started");
         if (testPlayerCmdNext < testPlayerCmdQueue.length) {
             nextCmd = testPlayerCmdQueue[testPlayerCmdNext];
             testPlayerCmdNext++;

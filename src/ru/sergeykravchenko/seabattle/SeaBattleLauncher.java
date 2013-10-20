@@ -40,21 +40,19 @@ public class SeaBattleLauncher {
 		hInstance = new UIController(modeTesting);
 		hPlayer   = new Player(hInstance);
 		hComputer = new ComputerPlayer(hInstance);
-		UIController.InstanceMode currentCommand = UIController.InstanceMode.TUNER;
+        hSeaBattle = new GameSeaBattle(hPlayer,hComputer);
+        UIController.InstanceMode currentCommand = UIController.InstanceMode.TUNER;
 		do { 
 				switch (currentCommand) {
 				case TUNER:
 					   hPlayer.tunePlayer();
 					break;
 				case START:
-					if (hSeaBattle == null)
-					   hSeaBattle = new GameSeaBattle(hPlayer,hComputer); 
+
 					break;
 				case PLAY:
-					if (hSeaBattle != null) {
-						hSeaBattle.playGame(hPlayer,hComputer);	
-					};
-		
+					hSeaBattle.playGame(hPlayer,hComputer);
+
 					break;	
 				case STOP:
 					if (hSeaBattle != null) {
@@ -77,7 +75,8 @@ public class SeaBattleLauncher {
 		while (currentCommand!=UIController.InstanceMode.QUIT);
 		
 		}
-	
+
+
 }
 ;
 

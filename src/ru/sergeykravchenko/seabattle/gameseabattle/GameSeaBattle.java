@@ -26,8 +26,8 @@ public class GameSeaBattle {
 	private Player[] hhPlayers;
     private short seaSize ;
     private SeaField hSeaField;
-    //private Ship[] hShip;
-    private Short[] flotShipDecks;
+    //private Ship[] hNavy;
+    private Short[] navyShipDecks;
     private short nextStepPlayer; //
 	public GameSeaBattle(Player hPlayer1, Player hPlayer2){
 	    if ((hPlayer1!=null)&&(hPlayer2!=null)) 	{
@@ -36,18 +36,21 @@ public class GameSeaBattle {
 		    hhPlayers[1] = hPlayer2;
             nextStepPlayer = 0;
             seaSize = 10;        // Default SeaSize
-            flotShipDecks = new Short[10];
-            flotShipDecks[0]=4;  // 4 decks ship = 1
-            flotShipDecks[1]=3; flotShipDecks[2]=3;  // 3 decks ship = 2
-            flotShipDecks[3]=2; flotShipDecks[4]=2;flotShipDecks[5]=2; // 2 decks ship = 3
-            flotShipDecks[6]=1;flotShipDecks[7]=1; flotShipDecks[8]=1;flotShipDecks[9]=1;// 1 decks ship = 4
+            navyShipDecks = new Short[10];
+            navyShipDecks[0]=4;  // 4 decks ship = 1
+            navyShipDecks[1]=3; navyShipDecks[2]=3;  // 3 decks ship = 2
+            navyShipDecks[3]=2; navyShipDecks[4]=2;
+            navyShipDecks[5]=2; // 2 decks ship = 3
+            navyShipDecks[6]=1;
+            navyShipDecks[7]=1; navyShipDecks[8]=1;
+            navyShipDecks[9]=1;// 1 decks ship = 4
 		    System.out.println ("Game SeaBattle Controller started with 2 players and 10 ships");
 	    }else {
             System.out.println("Game SeaBattle Controller aborted, invalid Players");
         }
 	}
     //* resetSeaField(size)  пересоздает игровое поле заданного размера. старое поле - в мусор
-    public SeaField resetSeaField (short size) {
+ /*   public SeaField resetSeaField (short size) {
        short i;
        //  see SeaField.seaSize=size;
        for (i=0; i<hhPlayers.length; i++) {
@@ -56,6 +59,7 @@ public class GameSeaBattle {
        }
        return (hSeaField);
     }
+   */
 
     public void playGame (Player hPlayer1, Player hPlayer2) {
 	    System.out.println ("Play SeaBattle step done ");
@@ -66,6 +70,9 @@ public class GameSeaBattle {
 	public void quitGame(Player hPlayer1, Player hPlayer2) {
 		System.out.println ("QUIT SeaBattle Game done ");
 	}
+ public Short[] getNavyShipDecks(){
+     return navyShipDecks;
+ }
 
 }
 //:~
