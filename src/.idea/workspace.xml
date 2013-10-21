@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e577fcc-30a6-474f-b050-6c14bc072738" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../tests/tests.iml" />
-      <change type="DELETED" beforePath="C:\Users\sysAdmin\Documents\GitHub\PSJavaSeabattle2\src\ru\sergeykravchenko\seabattle\testseabattle\TestSeaBattle.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PSJavaSeabattle2.iml" afterPath="$PROJECT_DIR$/PSJavaSeabattle2.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/Player.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaCell.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaCell.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaField.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaField.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/Ship.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/Ship.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/uicontroller/UIController.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/uicontroller/UIController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="src.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382397833617" ignored="false" />
+    <file path="/Dummy.txt" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382397959785" ignored="false" />
     <file path="/fragment.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382392426071" ignored="false" />
     <file path="/SeaBattleLauncher.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382307343157" ignored="false" />
     <file path="/GameDB.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1381769976663" ignored="false" />
@@ -193,7 +183,7 @@
       <file leaf-file-name="TestSeaField.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/tests/TestSeaField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="0" selection-start="1240" selection-end="1240" vertical-scroll-proportion="0.49622926">
+            <state line="40" column="0" selection-start="1240" selection-end="1240" vertical-scroll-proportion="0.4977307">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -749,7 +739,11 @@
       <created>1381785637198</created>
       <updated>1381785637198</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="v0.2.2 ship placement done &amp; covered by Junit tests&#10;">
+      <created>1382397964842</created>
+      <updated>1382397964842</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -783,6 +777,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925338" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24958263" sideWeight="0.59681374" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297162" sideWeight="0.670904" order="3" side_tool="false" content_ui="tabs" />
@@ -793,7 +788,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32802936" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -840,7 +834,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="1st Framework MVC for SeaBattle" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.2.2 ship placement done &amp; covered by Junit tests&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -855,6 +849,7 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="1st Framework MVC for SeaBattle" />
+    <MESSAGE value="v0.2.2 ship placement done &amp; covered by Junit tests&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -957,7 +952,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/tests/TestSeaField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="1240" selection-end="1240" vertical-scroll-proportion="0.49622926">
+        <state line="40" column="0" selection-start="1240" selection-end="1240" vertical-scroll-proportion="0.4977307">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
