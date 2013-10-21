@@ -20,7 +20,6 @@ package ru.sergeykravchenko.seabattle.uicontroller;
 import ru.sergeykravchenko.seabattle.gameseabattle.SeaCell;
 import ru.sergeykravchenko.seabattle.gameseabattle.SeaField;
 import ru.sergeykravchenko.seabattle.player.Player;
-import ru.sergeykravchenko.seabattle.testseabattle.TestSeaBattle;
 
 import static ru.sergeykravchenko.seabattle.uicontroller.UIController.InstanceMode.*;
 
@@ -115,7 +114,7 @@ public class UIController {
         renderSeaFieldConsole(hhPlayer.getPlayerSea(), seaSize, coordName,
                                 "Игровое поле "+hhPlayer.getPlayerName() );
         renderSeaFieldConsole(hhPlayer.getTargetSea(), seaSize, coordName,
-                                "Игровое поле противника " );
+                                "Игровое поле противника для "+hhPlayer.getPlayerName() );
     }
 // отрисовка игрового поля на консоли
     private void renderSeaFieldConsole(SeaField hSeaField, short seaSize, String[] coordName, String header){
