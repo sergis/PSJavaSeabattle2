@@ -37,19 +37,20 @@ public class TestSeaField {
     }
 
     @Test
-    public void testPlaceShip()  {
+    public void testPlaceShip() throws Exception {
 
-        assertTrue ("No placement 1 deck to 5,5 vertical",sea.placeShip(navyShip[6],5,5,true));
-        assertTrue ("No placement 3 deck to 5,0 vertical",sea.placeShip(navyShip[2],5,0,true));
+        assertTrue   ("No placement 1 deck to 5,5 vertical",sea.placeShip(navyShip[6],5,5,true));
+        assertTrue   ("No placement 3 deck to 5,0 vertical",sea.placeShip(navyShip[2],5,0,true));
         assertTrue ("No placement 4 deck to 0,0 horizontal",sea.placeShip(navyShip[0],0,0,false));
         assertTrue ("No placement 3 deck to 0,5 horizontal",sea.placeShip(navyShip[1],0,5,false));
         assertTrue ("No placement 1 deck to 0,9 horizontal",sea.placeShip(navyShip[9],0,9,false));
         assertTrue ("No placement 1 deck to 9,9 horizontal",sea.placeShip(navyShip[8],9,9,false));
         assertTrue ("No placement 1 deck to 9,0 horizontal",sea.placeShip(navyShip[7],9,0,false));
-        assertFalse ("Over placement 1 deck to 9,0 horizontal",sea.placeShip(navyShip[6],9,0,false));
-        assertTrue ("No placement 2 deck to 3,9 vertical",sea.placeShip(navyShip[3],3,9,true));
-        assertFalse ("Over placement 2 deck to 4,9 vertical",sea.placeShip(navyShip[4],4,9,true));
-        assertTrue ("No placement 2 deck to 7,7 vertical",sea.placeShip(navyShip[4],7,7,true));
-        assertTrue ("No placement 2 deck to 9,5 vertical",sea.placeShip(navyShip[5],9,5,true));
+     assertFalse ("Over placement 1 deck to 9,0 horizontal",sea.placeShip(navyShip[6],9,0,false));
+          assertTrue ("No placement 2 deck to 3,9 vertical",sea.placeShip(navyShip[3],3,9,true));
+       assertFalse ("Over placement 2 deck to 4,9 vertical",sea.placeShip(navyShip[4],4,9,true));
+          assertTrue ("No placement 2 deck to 7,7 vertical",sea.placeShip(navyShip[4],7,7,true));
+          assertTrue ("No placement 2 deck to 9,5 vertical",sea.placeShip(navyShip[5],9,5,true));
+
     }
 }

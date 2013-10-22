@@ -19,7 +19,10 @@ package ru.sergeykravchenko.seabattle.uicontroller;
  */
 import ru.sergeykravchenko.seabattle.gameseabattle.SeaCell;
 import ru.sergeykravchenko.seabattle.gameseabattle.SeaField;
+import ru.sergeykravchenko.seabattle.gameseabattle.Ship;
 import ru.sergeykravchenko.seabattle.player.Player;
+
+import java.util.ArrayList;
 
 import static ru.sergeykravchenko.seabattle.uicontroller.UIController.InstanceMode.*;
 
@@ -50,20 +53,7 @@ public class UIController {
         //boolean mode;
         System.out.println ("Instance started");
     }
-    /*
-    * внешний геттер для режима тестирования
-    *
-     */
-    public boolean isModeTesting() {
-        return modeTesting;
-    }
-    /*
-     * внешний cеттер для режима тестирования
-     *
-     */
-     public void setModeTesting(boolean modeTesting) {
-        this.modeTesting = modeTesting;
-    }
+
     /*
     *  UIController#getInstanceMode()
     *  @return возвращает команду управления режимом работы программы
@@ -92,9 +82,10 @@ public class UIController {
             case PLAY:
             case START:
                        renderSeaField(hhPlayer);
+                       break;
             case STOP:
             case QUIT:
-                System.out.println(" View rendered for Player:" + hhPlayer.getPlayerName() );
+                System.out.println(" Quit View rendered for Player:" + hhPlayer.getPlayerName() );
                 break;
             default:
                 System.out.println("Undefined view, please define VIEW switch");
@@ -106,8 +97,7 @@ public class UIController {
     *
     * выводит текущие настройки игры для игрока
     *
-    *
-    * */
+    */
     public void renderSeaField(Player hhPlayer ){
         String[] coordName = hhPlayer.getCoordNameSea();
         short seaSize = hhPlayer.getPlayerSeaSize();
@@ -116,7 +106,7 @@ public class UIController {
         renderSeaFieldConsole(hhPlayer.getTargetSea(), seaSize, coordName,
                                 "Игровое поле противника для "+hhPlayer.getPlayerName() );
     }
-// отрисовка игрового поля на консоли
+    // отрисовка игрового поля на консоли
     private void renderSeaFieldConsole(SeaField hSeaField, short seaSize, String[] coordName, String header){
         SeaCell cell;
         System.out.println("* * *"+ header+" * * *");
@@ -134,30 +124,37 @@ public class UIController {
                 for (short j=0;j<seaSize;j++) {
                     cell = hSeaField.getCell(i,j);
                     System.out.print("|");
-                    if (cell==null)
-                         System.out.print("_");
-                    else
+                    switch (cell.getCellState()) {
+                    case EMPTY:
+                         System.out.print("_"); break;
+                    case DECK:
                         System.out.print("#");
+                        break;
+                    case NEIGHBORED:
+                        System.out.print(".");
+                        break;
+                    default:
+                            System.out.print("?");
+                    }
                 }
                 System.out.println("| *");   // конец строки   отбивка
             }
         }
-
     }
-    /*
+   /*
     * UIController#renderTunes(hhPlayer)
     *
     * выводит текущие настройки игры для игрока
-    *
-    *
-    * */
+    */
     public void renderTunes(Player hhPlayer ){
-
         System.out.println("* * *Настройки для игрока "+hhPlayer.getPlayerName()+" * * *");
         System.out.println("* * Размер игрового поля "+hhPlayer.getPlayerSeaSize()+" * * *");
         System.out.println("* * Флот к бою * * *");
-
-
+        if (hhPlayer.getPlayerNavyArray()!=null)
+            for( Ship hShip : hhPlayer.getPlayerNavyArray()){
+              System.out.println("* "+hShip.getDecksOnShip()+" decks ship* * *");
+            }
+        else System.out.println("* No Fleet Assigned ***");
     }
     /*
      *   Получает следующую команду от Игрока
@@ -193,4 +190,12 @@ public class UIController {
             }
         }
     }
+    //* внешний геттер для режима тестирования
+    public boolean isModeTesting() {
+        return modeTesting;
+    }
+     // * внешний cеттер для режима тестирования
+     public void setModeTesting(boolean modeTesting) {
+        this.modeTesting = modeTesting;
+     }
 }

@@ -48,9 +48,14 @@ public class SeaBattleLauncher {
 					   hPlayer.tunePlayer();
 					break;
 				case START:
-
+                       hPlayer.placePlayerNavy();
+                       hPlayer.place2ndPlayerNavy();
+                       hComputer.placePlayerNavy();
+                       hComputer.place2ndPlayerNavy();
 					break;
 				case PLAY:
+                    // получить команду от игрока
+                    // выполнить следующий ход
 					hSeaBattle.playGame(hPlayer,hComputer);
 
 					break;	

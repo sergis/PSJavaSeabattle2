@@ -34,6 +34,8 @@ public class GameSeaBattle {
 		    hhPlayers = new Player[2];
             hhPlayers[0] = hPlayer1;
 		    hhPlayers[1] = hPlayer2;
+            hPlayer1.sethGame(this);
+            hPlayer2.sethGame(this);
             nextStepPlayer = 0;
             seaSize = 10;        // Default SeaSize
             navyShipDecks = new Short[10];
@@ -44,7 +46,8 @@ public class GameSeaBattle {
             navyShipDecks[6]=1;
             navyShipDecks[7]=1; navyShipDecks[8]=1;
             navyShipDecks[9]=1;// 1 decks ship = 4
-		    System.out.println ("Game SeaBattle Controller started with 2 players and 10 ships");
+
+		  //  System.out.println ("Game SeaBattle Controller started with 2 players and 10 ships");
 	    }else {
             System.out.println("Game SeaBattle Controller aborted, invalid Players");
         }

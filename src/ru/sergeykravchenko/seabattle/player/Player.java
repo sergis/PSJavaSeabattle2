@@ -17,8 +17,10 @@ import java.util.Random;
  * <p> MVC: класс контроллера интерфейса  игры</p>
  * <p>методы : </p> <ul>
  * <li>конструктор: инициализирует данные об игроке, задает имя, статус активности (наблюдатель или нет)
- * <li> tunePlayer(): проверяет и установливает настройки игры задаваемые Игроком, в т.ч. расстановку кораблей </li>
- * <li> TODO: ___():</li>
+ * <li> <code>tunePlayer()</code>: проверяет и установливает настройки игры задаваемые Игроком, в т.ч. расстановку кораблей </li>
+ * <li> <code>placePlayerNavy()</code>: размещает случайным образом корабли на поле данного игрока</li>
+ * <li> <code>place2ndPlayerNavy()</code>: размещает случайным образом корабли на поле противника у данного игрока игрока</li>
+ * <li> <code>placeShipsAutomatically(SeaField playerTheater)<code> размещает корабли случайным образом на указанном поле</li>
  * <ul>
  * @author Sergey Kravchenko
  * @version 0.0
@@ -40,11 +42,11 @@ public class Player {
     protected String [] coordinateNameSea; // массив обозначений координат игрового поля 
 
     protected GameSeaBattle hGame;
-    protected ArrayList<Ship> hNavy;  // флот к бою
+    protected ArrayList<Ship> hNavy = new ArrayList<Ship>();  // флот к бою
     protected boolean isObserver;
     //
     public Player(UIController hInstance) {
-        hGame = null;                 // контроллер игры для Игрока
+        hGame = null;                 // контроллер игры для Игрока (вне игры);
         playerName = "Player-";       // Имя Игрока
         hPlayerUI = hInstance;        // контроллер интерфейса Игрока
         isObserver = false; // запрет на ввод команд игры =true  для игрока-компьютера и зарезервировано для игроков-зрителей
@@ -56,7 +58,7 @@ public class Player {
         playerSea[0]= new SeaField(playerSeaSize); // Player Sea Field always exists
         playerSea[1]= new SeaField(playerSeaSize); // Target Sea Field always exists
 
-        System.out.println ("Game Player Controller started:"+playerName);
+      //  System.out.println ("Game Player Controller started:"+playerName);
     }
     //
     public	void tunePlayer(){
@@ -69,7 +71,7 @@ public class Player {
                     System.out.println ("Game Player Sea Size invalid, reset to default =10 :"+playerName);
                     playerSeaSize=10;
                 }
-                if (hNavy==null)
+                if (hNavy.isEmpty())
                     for (short decks:hGame.getNavyShipDecks()){
                         hNavy.add(new Ship(decks));
                     }
@@ -78,7 +80,7 @@ public class Player {
                 break;
             case SETSHIP:
                   if (hGame!=null){
-                    if (hNavy==null)
+                    if (hNavy.isEmpty())
                        for (short decks:hGame.getNavyShipDecks()){
                            hNavy.add(new Ship(decks));
                        }
@@ -107,10 +109,30 @@ public class Player {
         System.out.println (playerName+":Tuner DONE. next cmd "+ cmdPlayer);
     }
 
-  /*  public void setPlayerSea (SeaField playerSea) {
-        this.playerSea[0] = playerSea;
-        }   */
-    protected void placeShipsAutomatically(SeaField playerTheater){
+// размещает случайным образом корабли на поле данного игрока
+  public boolean placePlayerNavy(){
+      if (hGame!=null){
+          if (hNavy.isEmpty())
+              for (short decks:hGame.getNavyShipDecks()){
+                  hNavy.add(new Ship(decks));
+              }
+          return placeShipsAutomatically(playerSea[0]);
+      } else return false;
+  }
+  //  размещает случайным образом корабли на поле противника у данного игрока игрока
+  // TODO:  УБРАТЬ, сделана  только для тестирования вывода на поле
+  public boolean place2ndPlayerNavy(){
+      if (hGame!=null){
+          if (hNavy.isEmpty())
+                for (short decks:hGame.getNavyShipDecks()){
+                    hNavy.add(new Ship(decks));
+          }
+        return placeShipsAutomatically(playerSea[1]);
+      } else return false;
+  }
+// размещает корабли случайным образом на указанном поле
+  protected boolean placeShipsAutomatically(SeaField playerTheater){
+        boolean placed = true;
         Random rndGen = new Random ();
         // variant 1 random placement ship by ship
         for (Ship hShip:hNavy) {
@@ -122,33 +144,43 @@ public class Player {
                     if (playerTheater.placeShip(hShip,x,y,rndGen.nextBoolean()) )
                     {
                         break;
-                    }
-                    ;
-
+                    }; // placement fault continue to the next attempt
                 }
-            }
+            } else placed = false;
         }
+      return placed;
     }
-
+    //
+    public ArrayList<Ship> getPlayerNavyArray(){
+        return hNavy;
+    }
+    //
     public String[] getCoordNameSea () {
         return this.coordinateNameSea;
     }
+    //
     public SeaField getPlayerSea () {
         return this.playerSea[0];
     }
+    //
     public SeaField getTargetSea () {
         return this.playerSea[1];
     }
+    //
     boolean isObserver() {
         return isObserver;
-        }
+    }
+    //
+    public void sethGame(GameSeaBattle gameSeaBattle){
+       hGame = gameSeaBattle;
+    }
     /*
     * Player#getPlayerName()
     * @return playerName
     */
     public String getPlayerName() {
         return playerName;}
-//
+    //
     public short getPlayerSeaSize() {
         return playerSeaSize;
     }
