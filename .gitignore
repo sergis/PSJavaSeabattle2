@@ -1,3 +1,8 @@
 /bin
 /src/out
 /JavaFXapp
+/untitled
+./*/.idea/workspace.xml
+/*/.idea/tasks.xml
+/*/.idea/*.iws
+/eclipse*/
