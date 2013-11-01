@@ -24,11 +24,13 @@ public class Ship {
     private boolean shipInBattle;
     private int decksOnShip;
     private SeaCell[] deckPosition;
-
+    private int xCoordinate,yCoordinate;
+    private boolean vertical;
     public Ship(int decks){
         shipInBattle = false; // Корабль на рейде, команда в отпуске
         decksOnShip = decks;
-        deckPosition= new SeaCell[decks];
+        deckPosition= new SeaCell[decks] ;
+        xCoordinate=-1; yCoordinate=-1; // coordinates out of field
       }
     public int getDecksOnShip() {
         return decksOnShip;
@@ -37,8 +39,28 @@ public class Ship {
         cell.setCellAsDeck(this);
         deckPosition[deckN] = cell;
     }
-    public boolean isInBattle(){
+
+    public void setInBattle(boolean newSetInBattle){
+        shipInBattle=newSetInBattle;
+    }
+    public int getxCoordinate() { return xCoordinate; }
+    public int getyCoordinate() { return yCoordinate; }
+    public boolean isVertical() { return vertical;}
+    public void setShipPlace(int xCoordinate, int yCoordinate, boolean straight) {
+        this.xCoordinate = xCoordinate;
+        this.yCoordinate = yCoordinate;
+        this.vertical = straight;
+    }
+    // обработка выстрела противника по кораблю
+    // @return boolean жив корабль или нет по кораблю или нет
+    public boolean fireBoom() {
+
+        for (SeaCell shipDeck:deckPosition)
+            if (shipDeck.getCellState()== SeaCell.StateCell.DECK) return true;
+        // нет живых палуб
+        shipInBattle =false;
         return shipInBattle;
     }
-    //public setShipPosition()
+    public boolean isInBattle(){ return shipInBattle; }
 }
+//:~ end of class

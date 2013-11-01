@@ -1,7 +1,6 @@
 package ru.sergeykravchenko.seabattle.player;
 
-import ru.sergeykravchenko.seabattle.player.Player;
-import ru.sergeykravchenko.seabattle.uicontroller.UIController;
+import ru.sergeykravchenko.seabattle.consoleapp.UIController;
 
 /*
  *  Java 1 Course work (IntelliJ Idea)

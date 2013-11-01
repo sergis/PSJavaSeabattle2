@@ -1,4 +1,4 @@
-package ru.sergeykravchenko.seabattle.uicontroller;
+package ru.sergeykravchenko.seabattle.consoleapp;
 /*
  * *   Java 1 Course work (IntelliJ Idea)
  * <h4>Java 1 Lesson 3 Домашнее задание/курсовая работа</h4>
@@ -22,9 +22,7 @@ import ru.sergeykravchenko.seabattle.gameseabattle.SeaField;
 import ru.sergeykravchenko.seabattle.gameseabattle.Ship;
 import ru.sergeykravchenko.seabattle.player.Player;
 
-import java.util.ArrayList;
-
-import static ru.sergeykravchenko.seabattle.uicontroller.UIController.InstanceMode.*;
+import static ru.sergeykravchenko.seabattle.consoleapp.UIController.InstanceMode.*;
 
 public class UIController {
     /*
@@ -101,12 +99,15 @@ public class UIController {
     public void renderSeaField(Player hhPlayer ){
         String[] coordName = hhPlayer.getCoordNameSea();
         short seaSize = hhPlayer.getPlayerSeaSize();
-        renderSeaFieldConsole(hhPlayer.getPlayerSea(), seaSize, coordName,
-                                "Игровое поле "+hhPlayer.getPlayerName() );
+        renderSeaFieldConsole(hhPlayer);
         renderSeaFieldConsole(hhPlayer.getTargetSea(), seaSize, coordName,
                                 "Игровое поле противника для "+hhPlayer.getPlayerName() );
     }
     // отрисовка игрового поля на консоли
+    public  void   renderSeaFieldConsole(Player hhPlayer){
+        renderSeaFieldConsole(hhPlayer.getPlayerSea(), hhPlayer.getPlayerSeaSize(),
+                hhPlayer.getCoordNameSea(),"Игровое поле "+hhPlayer.getPlayerName() );
+    }
     private void renderSeaFieldConsole(SeaField hSeaField, short seaSize, String[] coordName, String header){
         SeaCell cell;
         System.out.println("* * *"+ header+" * * *");
@@ -122,7 +123,7 @@ public class UIController {
             for (short i=0;i<seaSize;i++) {
                 System.out.print(" "+coordName[1].substring(i,i+1)+"*");
                 for (short j=0;j<seaSize;j++) {
-                    cell = hSeaField.getCell(i,j);
+                    cell = hSeaField.getCell(j,i);
                     System.out.print("|");
                     switch (cell.getCellState()) {
                     case EMPTY:
@@ -152,7 +153,8 @@ public class UIController {
         System.out.println("* * Флот к бою * * *");
         if (hhPlayer.getPlayerNavyArray()!=null)
             for( Ship hShip : hhPlayer.getPlayerNavyArray()){
-              System.out.println("* "+hShip.getDecksOnShip()+" decks ship* * *");
+              System.out.println("* "+hShip.getDecksOnShip()+" decks ship*x: "
+                      +hShip.getxCoordinate()+"*y: "+hShip.getyCoordinate()+" *v: "+hShip.isVertical());
             }
         else System.out.println("* No Fleet Assigned ***");
     }

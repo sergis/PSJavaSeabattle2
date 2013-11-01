@@ -21,6 +21,7 @@ package ru.sergeykravchenko.seabattle.gameseabattle;
   *
  */
 public class SeaCell {
+
     public enum StateCell {EMPTY, DECK, FIRED, DESTROYED, NEIGHBORED};
     private Ship hShip;
     private StateCell stateCell;
@@ -44,4 +45,16 @@ public class SeaCell {
         hShip = hhShip;
         stateCell =StateCell.DECK;
     }
+    // выстрел по ячейке поля противником
+    // @ return boolean попал или нет
+    public boolean fireCell() {
+        if (stateCell == StateCell.DECK) {
+            stateCell = StateCell.DESTROYED;
+            hShip.fireBoom();
+            return true;
+        }
+        else stateCell = StateCell.FIRED;
+        return false;  //To change body of created methods use File | Settings | File Templates.
+    }
+
 }

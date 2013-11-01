@@ -1,7 +1,6 @@
-package ru.sergeykravchenko.seabattle.uicontroller;
+package ru.sergeykravchenko.seabattle.consoleapp;
 
 import ru.sergeykravchenko.seabattle.player.Player;
-import ru.sergeykravchenko.seabattle.uicontroller.UIController;
 /*
  *  Java 1 Course work (IntelliJ Idea)
  * <h5>Java 1 Lesson 4 Домашнее задание/курсовая работа. класс Тестирование для игры морской бой/h5>

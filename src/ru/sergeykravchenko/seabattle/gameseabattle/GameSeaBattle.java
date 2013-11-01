@@ -10,7 +10,7 @@ import ru.sergeykravchenko.seabattle.player.Player;
  * <p>методы : </p> <ul>
  * <li>конструктор: запоминает играющих, инициализирует игровое поле, рейд с кораблями, устанавливает статус "настройка" </li>
  * <li>TODO: setGameMode(): вызывается из контроллера настройки, устанавливает параметры игры по-умолчанию(см.описание метода)</li>
- * <li>TODO: resetSeaField(): создает игровое поле заданного размера</li>
+ *
  * <li>TODO: setSeaField(): реализует расстановкукораблей</li>
  * <li>TODO: playGame(): реализует исполнение одного хода и определяет кто ходит следующим</li>
  * <li>TODO: stopGame(): останавливает игру, (прерывает по команде игрока или по завершении ходов).полезен для переигровки и тп </li>
@@ -23,14 +23,15 @@ import ru.sergeykravchenko.seabattle.player.Player;
  *
  */
 public class GameSeaBattle {
+
 	private Player[] hhPlayers;
     private short seaSize ;
     private SeaField hSeaField;
     //private Ship[] hNavy;
     private Short[] navyShipDecks;
     private short nextStepPlayer; //
-	public GameSeaBattle(Player hPlayer1, Player hPlayer2){
-	    if ((hPlayer1!=null)&&(hPlayer2!=null)) 	{
+ public GameSeaBattle(Player hPlayer1, Player hPlayer2){
+	if ((hPlayer1!=null)&&(hPlayer2!=null)) 	{
 		    hhPlayers = new Player[2];
             hhPlayers[0] = hPlayer1;
 		    hhPlayers[1] = hPlayer2;
@@ -50,29 +51,33 @@ public class GameSeaBattle {
 		  //  System.out.println ("Game SeaBattle Controller started with 2 players and 10 ships");
 	    }else {
             System.out.println("Game SeaBattle Controller aborted, invalid Players");
-        }
-	}
-    //* resetSeaField(size)  пересоздает игровое поле заданного размера. старое поле - в мусор
- /*   public SeaField resetSeaField (short size) {
-       short i;
-       //  see SeaField.seaSize=size;
-       for (i=0; i<hhPlayers.length; i++) {
-           hhPlayers[i].setPlayerSea(new SeaField(size)); // if any Sea fields exist add job for GC, no saving yet
-        System.out.println ("SeaField reset. size: "+size);
-       }
-       return (hSeaField);
     }
-   */
+ }
+ // Player firing to target
+ // @return boolean if fire was shot or missing
+ public boolean fireTarget(Player hPlayer, int xTarget, int yTarget) {
+    boolean fireShot = false;
+    Player targetPlayer;
+    if ((hhPlayers!=null)&&(hPlayer!=null)) {
+         if (hPlayer==hhPlayers[0]) targetPlayer =hhPlayers[1];
+            else targetPlayer = hhPlayers[0];
+         fireShot = targetPlayer.fireBoom(xTarget, yTarget);
 
-    public void playGame (Player hPlayer1, Player hPlayer2) {
+     }
+    return fireShot;
+ }
+
+ public void playGame (Player hPlayer1, Player hPlayer2) {
 	    System.out.println ("Play SeaBattle step done ");
-	}
-	public void stopGame(Player hPlayer1, Player hPlayer2) {
+ }
+ public void stopGame(Player hPlayer1, Player hPlayer2) {
 		System.out.println ("STOP SeaBattle step done ");
-	}
-	public void quitGame(Player hPlayer1, Player hPlayer2) {
+ }
+ public void quitGame(Player hPlayer1, Player hPlayer2) {
 		System.out.println ("QUIT SeaBattle Game done ");
-	}
+ }
+
+ // @return Short[] array of navy ship decks arrangement
  public Short[] getNavyShipDecks(){
      return navyShipDecks;
  }

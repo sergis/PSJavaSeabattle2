@@ -3,7 +3,7 @@ package ru.sergeykravchenko.seabattle.player;
 import ru.sergeykravchenko.seabattle.gameseabattle.GameSeaBattle;
 import ru.sergeykravchenko.seabattle.gameseabattle.SeaField;
 import ru.sergeykravchenko.seabattle.gameseabattle.Ship;
-import ru.sergeykravchenko.seabattle.uicontroller.UIController;
+import ru.sergeykravchenko.seabattle.consoleapp.UIController;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -14,10 +14,11 @@ import java.util.Random;
  * <p>Класс реализует создание и методы работы с объектом Игрока в игре  Морской бой </p>
  * <p>/p>
  * <p></p>
- * <p> MVC: класс контроллера интерфейса  игры</p>
+ * <p> MVC: класс модели интерфейса  игрока</p>
  * <p>методы : </p> <ul>
  * <li>конструктор: инициализирует данные об игроке, задает имя, статус активности (наблюдатель или нет)
  * <li> <code>tunePlayer()</code>: проверяет и установливает настройки игры задаваемые Игроком, в т.ч. расстановку кораблей </li>
+ * <li> <code>fireBoom()</code>: рeализует выстрел противника по полю игрока</li>
  * <li> <code>placePlayerNavy()</code>: размещает случайным образом корабли на поле данного игрока</li>
  * <li> <code>place2ndPlayerNavy()</code>: размещает случайным образом корабли на поле противника у данного игрока игрока</li>
  * <li> <code>placeShipsAutomatically(SeaField playerTheater)<code> размещает корабли случайным образом на указанном поле</li>
@@ -30,9 +31,12 @@ import java.util.Random;
  */
 public class Player {
 
-    public enum PlayerMode {WAIT, START, QUIT, STOP,// Команды/состояния пользовательского интерфейса игрока
-                            SETSHIP, SETFIELD,      //  параметры команд будут передаваться
-                            SETNAME                 //в сопутствующем массиве параметров
+    private boolean defeated;  // = true if GAME OVER and the player LOST
+
+    // Команды/состояния пользовательского интерфейса игрока
+    public enum PlayerMode {WAIT, START, QUIT, STOP,//  параметры команд будут передаваться
+                            SETSHIP, SETFIELD,      //в сопутствующем массиве параметров
+                            SETNAME
     }
     protected PlayerMode cmdPlayer = PlayerMode.WAIT;
     protected UIController hPlayerUI;
@@ -59,8 +63,10 @@ public class Player {
         playerSea[1]= new SeaField(playerSeaSize); // Target Sea Field always exists
 
       //  System.out.println ("Game Player Controller started:"+playerName);
+        defeated = false;
     }
-    //
+    //  метод для реализации настроек, задаваемых игроком
+    // TODO: переработать, м.б. разбить на отдельные методы настроек, вызываемые из интерфейс-контроллера
     public	void tunePlayer(){
         System.out.println (playerName+":Tuner cmd "+ cmdPlayer);
         switch (cmdPlayer){
@@ -101,15 +107,14 @@ public class Player {
                 if (hPlayerUI!=null) {
                     playerName += "Human";
                 }
-
-                break;
+                 break;
             default: System.out.println (playerName+":Unknown Tuner command "+ cmdPlayer);
         }
-
-        System.out.println (playerName+":Tuner DONE. next cmd "+ cmdPlayer);
+         System.out.println (playerName+":Tuner DONE. next cmd "+ cmdPlayer);
     }
 
-// размещает случайным образом корабли на поле данного игрока
+// размещает случайным образом корабли на поле игрока
+// @return boolean если все корабли размещены на поле
   public boolean placePlayerNavy(){
       if (hGame!=null){
           if (hNavy.isEmpty())
@@ -119,7 +124,8 @@ public class Player {
           return placeShipsAutomatically(playerSea[0]);
       } else return false;
   }
-  //  размещает случайным образом корабли на поле противника у данного игрока игрока
+  //  размещает случайным образом корабли на поле противника игрока
+  // @return boolean если все корабли размещены на поле
   // TODO:  УБРАТЬ, сделана  только для тестирования вывода на поле
   public boolean place2ndPlayerNavy(){
       if (hGame!=null){
@@ -131,6 +137,7 @@ public class Player {
       } else return false;
   }
 // размещает корабли случайным образом на указанном поле
+// @return boolean если все корабли размещены на поле
   protected boolean placeShipsAutomatically(SeaField playerTheater){
         boolean placed = true;
         Random rndGen = new Random ();
@@ -140,37 +147,62 @@ public class Player {
                 for (int i = playerSeaSize * playerSeaSize; i > 0; i--) {
                     int rnd = rndGen.nextInt(playerSeaSize * playerSeaSize - 1);
                     int x = (rnd % playerSeaSize);
-                    int y = (short) (rnd / playerSeaSize);
+                    int y = (rnd / playerSeaSize);
                     if (playerTheater.placeShip(hShip,x,y,rndGen.nextBoolean()) )
-                    {
+                    {   hShip.setInBattle(true);
                         break;
-                    }; // placement fault continue to the next attempt
+                    } // placement fault continue to the next attempt
                 }
             } else placed = false;
         }
       return placed;
     }
-    //
+    /*
+     *  #fireBoom
+     *  метод для реализации выстрела противника по кораблю игрока
+     * @return boolean попал противник или нет по кораблю игрока
+     * также устанавливает свойство defeated если все корабли поражены
+    */
+    public boolean fireBoom(int xTarget, int yTarget) {
+        boolean fireShot = false;
+
+        if ((xTarget>=0)&&(xTarget<10)&&(yTarget>=0)&&(yTarget<10)) {
+            fireShot = playerSea[0].getCell(xTarget,yTarget).fireCell();
+            if (fireShot) {
+                for (Ship hShip:hNavy) {
+                    if (hShip.isInBattle()) {
+                        return fireShot;
+                    }
+                }
+                // No ships in the Battle. DEFEAT
+                defeated =true;
+            }
+        }
+        return fireShot;
+    }
+    // @return  коллекция кораблей игрока
     public ArrayList<Ship> getPlayerNavyArray(){
         return hNavy;
     }
-    //
+    // @return строка наименований координат игрового поля (задается игроком?)
     public String[] getCoordNameSea () {
         return this.coordinateNameSea;
     }
-    //
+    //  @return  ссылка поле игрока
     public SeaField getPlayerSea () {
         return this.playerSea[0];
     }
-    //
+    //    @return  ссылка поле противника игрока
     public SeaField getTargetSea () {
         return this.playerSea[1];
     }
-    //
+    //   @return  true если игрок-наблюдатель, команды ввода из интерфейса не разрешены
     boolean isObserver() {
         return isObserver;
     }
-    //
+    // @return boolean если игрок побежден
+    public boolean isDefeated () {return defeated;}
+    //  связывает игрока с контроллером правил игры
     public void sethGame(GameSeaBattle gameSeaBattle){
        hGame = gameSeaBattle;
     }
@@ -180,7 +212,7 @@ public class Player {
     */
     public String getPlayerName() {
         return playerName;}
-    //
+    //  @return размер игрового поля игрока
     public short getPlayerSeaSize() {
         return playerSeaSize;
     }

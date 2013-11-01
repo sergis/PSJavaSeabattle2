@@ -1,10 +1,10 @@
-package ru.sergeykravchenko.seabattle;
+package ru.sergeykravchenko.seabattle.consoleapp;
 /*
  * *   Java 1 Course work (IntelliJ Idea)
  * <h3>Java 1 Lesson 3 Домашнее задание/курсовая работа</h3>
  * <p>Программа организует исполнение игры Морской бой (консольный вариант) </p>.
  * <p>Цель: 0 версия игры Морской бой</p>
- * <p> метод SeaBattleLauncher.main() реализует  управление игрой и MVC патерн,<br>
+ * <p> метод LaunchSeaBattle.main() реализует  управление игрой и MVC патерн,<br>
  *  выделены классы для/p>
  *  <ul>
  *   <li>тестов игры: TestSeaBattle</li>
@@ -20,16 +20,14 @@ package ru.sergeykravchenko.seabattle;
  *
  */
 
+import ru.sergeykravchenko.seabattle.consoleapp.UIController;
 import ru.sergeykravchenko.seabattle.player.ComputerPlayer;
 import ru.sergeykravchenko.seabattle.gameseabattle.GameSeaBattle;
 import ru.sergeykravchenko.seabattle.player.Player;
-import ru.sergeykravchenko.seabattle.uicontroller.UIController;
 
-import static ru.sergeykravchenko.seabattle.uicontroller.UIController.InstanceMode.START;
+public class LaunchSeaBattle {
 
-public class SeaBattleLauncher {
-
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
 		boolean modeTesting = true;
 		UIController hInstance = null;   // Front OS/UI Controller
@@ -41,6 +39,10 @@ public class SeaBattleLauncher {
 		hPlayer   = new Player(hInstance);
 		hComputer = new ComputerPlayer(hInstance);
         hSeaBattle = new GameSeaBattle(hPlayer,hComputer);
+
+
+
+
         UIController.InstanceMode currentCommand = UIController.InstanceMode.TUNER;
 		do { 
 				switch (currentCommand) {
@@ -83,8 +85,6 @@ public class SeaBattleLauncher {
 
 
 }
-;
-
 /**/
 
 
