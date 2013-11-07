@@ -2,47 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e577fcc-30a6-474f-b050-6c14bc072738" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/images/shipWheel.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/FireworkDraws.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/JfxController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/SeaBattleJfx.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/seabattle.fxml" />
-      <change type="MOVED" beforePath="C:\Users\sysAdmin\Documents\GitHub\PSJavaSeabattle2\src\ru\sergeykravchenko\seabattle\SeaBattleLauncher.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/consoleapp/LaunchSeaBattle.java" />
-      <change type="MOVED" beforePath="C:\Users\sysAdmin\Documents\GitHub\PSJavaSeabattle2\src\ru\sergeykravchenko\seabattle\uicontroller\TestSeaBattle.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/consoleapp/TestSeaBattle.java" />
-      <change type="MOVED" beforePath="C:\Users\sysAdmin\Documents\GitHub\PSJavaSeabattle2\src\ru\sergeykravchenko\seabattle\uicontroller\UIController.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/consoleapp/UIController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/ComputerPlayer.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/ComputerPlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/FireworkDraws.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/FireworkDraws.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/GameSeaBattle.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/GameSeaBattle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/JfxController.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/JfxController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/Player.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/SeaBattleJfx.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/SeaBattleJfx.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaCell.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaCell.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaField.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaField.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/Ship.java" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/Ship.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/seabattle.fxml" afterPath="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/seabattle.fxml" />
     </list>
     <ignored path="src.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383295946029" ignored="false" />
-    <file path="/fragment.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383165781441" ignored="false" />
+    <file path="/Dummy.txt" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383813613472" ignored="false" />
+    <file path="/fragment.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383778904654" ignored="false" />
     <file path="/SeaBattleLauncher.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382900827298" ignored="false" />
     <file path="/GameDB.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1381769976663" ignored="false" />
-    <file path="/Player.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382472075570" ignored="false" />
-    <file path="/GameSeaBattle.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382458797495" ignored="false" />
-    <file path="/ComputerPlayer.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382292624506" ignored="false" />
-    <file path="/UIController.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383139921006" ignored="false" />
+    <file path="/Player.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383777116067" ignored="false" />
+    <file path="/GameSeaBattle.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383774197353" ignored="false" />
+    <file path="/ComputerPlayer.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383829481383" ignored="false" />
+    <file path="/UIController.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383335683648" ignored="false" />
     <file path="/TestSeaBattle.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1381773753781" ignored="false" />
-    <file path="/SeaField.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383128860117" ignored="false" />
-    <file path="/SeaCell.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382395949532" ignored="false" />
-    <file path="/Ship.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383082355082" ignored="false" />
+    <file path="/SeaField.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383816831587" ignored="false" />
+    <file path="/SeaCell.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383777703956" ignored="false" />
+    <file path="/Ship.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383331102178" ignored="false" />
     <file path="/Groovy Console" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382373499417" ignored="false" />
     <file path="/TestSeaField.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382459993611" ignored="false" />
     <file path="/PlayerTest.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382471080688" ignored="false" />
     <file path="/a.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382473748033" ignored="false" />
-    <file path="/seabattle.fxml" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382901602009" ignored="false" />
+    <file path="/seabattle.fxml" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383318958149" ignored="false" />
     <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382910108783" ignored="false" />
     <file path="/SeaBattleJFXlauncher.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382909675760" ignored="false" />
     <file path="/SeaBattleJfxLauncher.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1382959188775" ignored="false" />
-    <file path="/JfxController.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383261112403" ignored="false" />
-    <file path="/SeaBattleJfx.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383216330269" ignored="false" />
+    <file path="/JfxController.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383770341265" ignored="false" />
+    <file path="/SeaBattleJfx.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383772351817" ignored="false" />
     <file path="/Fireworks.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383162028998" ignored="false" />
     <file path="/Firework.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383168095264" ignored="false" />
     <file path="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/Particle.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383165962228" ignored="false" />
-    <file path="/FireworkDraws.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383296079270" ignored="false" />
+    <file path="/FireworkDraws.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383768650581" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../!JAVA/Lesson7/src/ru/sergeykravchenko/lesson7/TreadTest.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383507583420" ignored="false" />
+    <file path="/TreadTest.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383510952465" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../!JAVA/Lesson7/src/ru/sergeykravchenko/lesson7/ThreadTest.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383510952465" ignored="false" />
+    <file path="/ThreadTest.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383510346429" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../!JAVA/Lesson7/src/ru/sergeykravchenko/lesson7/DegreeTwo.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383511627129" ignored="false" />
+    <file path="/DegreeTwo.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383517539098" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../!JAVA/Lesson7/src/ru/sergeykravchenko/lesson7/CheckDegreeTwo.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383586183751" ignored="false" />
+    <file path="/CheckDegreeTwo.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383586183344" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../!JAVA/Lesson7/src/ru/sergeykravchenko/lesson7/XorStream.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383579393021" ignored="false" />
+    <file path="/XorStream.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383579366007" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../!JAVA/Lesson7/src/ru/sergeykravchenko/lesson7/ListMiddlePointer.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383658316894" ignored="false" />
+    <file path="/ListMiddlePointer.java" changelist="1e577fcc-30a6-474f-b050-6c14bc072738" time="1383655007249" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +109,23 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/ComputerPlayer.java" line="54" class="ru.sergeykravchenko.seabattle.player.ComputerPlayer" package="ru.sergeykravchenko.seabattle.player">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -112,7 +138,7 @@
       <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="28" selection-start="5676" selection-end="5676" vertical-scroll-proportion="0.0">
+            <state line="151" column="0" selection-start="6980" selection-end="7081" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -121,7 +147,7 @@
       <file leaf-file-name="Ship.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/Ship.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="49" selection-start="2010" selection-end="2010" vertical-scroll-proportion="0.0">
+            <state line="64" column="0" selection-start="2548" selection-end="2548" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -130,7 +156,7 @@
       <file leaf-file-name="SeaBattleJfx.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/SeaBattleJfx.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="0" selection-start="1963" selection-end="2057" vertical-scroll-proportion="0.0">
+            <state line="54" column="1" selection-start="1917" selection-end="1917" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -139,7 +165,34 @@
       <file leaf-file-name="JfxController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/JfxController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="353" column="79" selection-start="9957" selection-end="9957" vertical-scroll-proportion="0.0">
+            <state line="549" column="16" selection-start="20965" selection-end="20965" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FireworkDraws.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/FireworkDraws.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="85" column="25" selection-start="3286" selection-end="3286" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seabattle.fxml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/seabattle.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="182" column="22" selection-start="10639" selection-end="10639" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComputerPlayer.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/ComputerPlayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="24" selection-start="4442" selection-end="4442" vertical-scroll-proportion="0.5823452">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -147,10 +200,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FireworkDraws.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/FireworkDraws.java">
+      <file leaf-file-name="SeaCell.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaCell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="9" selection-start="2684" selection-end="2684" vertical-scroll-proportion="0.5519481">
+            <state line="19" column="38" selection-start="1255" selection-end="1255" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameSeaBattle.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/GameSeaBattle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="37" selection-start="1767" selection-end="1767" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -159,7 +221,7 @@
       <file leaf-file-name="SeaField.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="0" selection-start="5612" selection-end="5612" vertical-scroll-proportion="0.0">
+            <state line="110" column="29" selection-start="5785" selection-end="5799" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -183,22 +245,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/uicontroller/SeaBattleJFXlauncher.java" />
-        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/uicontroller/LaunchSeaBattle.java" />
-        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/uicontroller/seabattle.fxml" />
         <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/uicontroller/SeaBattleJfxLauncher.java" />
         <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/uicontroller/SeaBattleJfx.java" />
         <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/uicontroller/JfxController.java" />
         <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/consoleapp/LaunchSeaBattle.java" />
-        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/Ship.java" />
-        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaField.java" />
-        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/Player.java" />
-        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/consoleapp/UIController.java" />
         <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/Firework.java" />
-        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/SeaBattleJfx.java" />
         <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/seabattle.fxml" />
-        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/JfxController.java" />
+        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/consoleapp/UIController.java" />
+        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/Ship.java" />
         <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/FireworkDraws.java" />
+        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/JfxController.java" />
+        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/SeaBattleJfx.java" />
+        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/GameSeaBattle.java" />
+        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/Player.java" />
+        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaCell.java" />
+        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaField.java" />
+        <option value="$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/ComputerPlayer.java" />
       </list>
     </option>
   </component>
@@ -206,10 +268,9 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="9" />
-    <option name="y" value="10" />
+    <option name="x" value="-16" />
     <option name="width" value="1280" />
-    <option name="height" value="964" />
+    <option name="height" value="974" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -339,6 +400,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="jfxapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FireworkDraws.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="seabattle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="gameseabattle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -381,8 +464,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -394,18 +477,18 @@
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="preferences.sourceCode" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JavaFXapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.3757503" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.3757503" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -551,6 +634,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -576,19 +672,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -704,13 +787,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="9" y="10" width="1280" height="964" extended-state="0" />
+    <frame x="-16" y="0" width="1280" height="974" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297162" sideWeight="0.670904" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4299876" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47328246" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -718,14 +801,14 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24958263" sideWeight="0.59681374" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297162" sideWeight="0.670904" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27504104" sideWeight="0.6133829" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3866171" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27504104" sideWeight="0.6552163" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34478372" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3262032" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32589838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24958263" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32315522" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24876848" sideWeight="0.7236679" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -793,35 +876,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="0" selection-start="5612" selection-end="5612" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_40/src.zip!/java/lang/reflect/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="605" column="0" selection-start="24861" selection-end="24861" vertical-scroll-proportion="0.23950617" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/GameSeaBattle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="12" selection-start="2357" selection-end="2357" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/tests/PlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="28" selection-start="1580" selection-end="1580" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="1465" selection-end="1465" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -831,32 +888,6 @@
         <state line="1" column="0" selection-start="1" selection-end="170" vertical-scroll-proportion="0.024390243" />
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_40/jre/lib/jfxrt.jar!/javafx/fxml/FXMLLoader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="489" column="0" selection-start="24803" selection-end="24803" vertical-scroll-proportion="2.1191335" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/Ship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="49" selection-start="2010" selection-end="2010" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="28" selection-start="5676" selection-end="5676" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="0" selection-start="5612" selection-end="5612" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/consoleapp/LaunchSeaBattle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="8" selection-start="1398" selection-end="1440" vertical-scroll-proportion="0.2173913">
@@ -864,40 +895,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/SeaBattleJfx.java">
+    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/consoleapp/UIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="0" selection-start="1963" selection-end="2057" vertical-scroll-proportion="0.0">
+        <state line="101" column="40" selection-start="3954" selection-end="3954" vertical-scroll-proportion="0.0">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_40/jre/lib/jfxrt.jar!/javafx/scene/Parent.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="67" selection-start="2017" selection-end="2017" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/seabattle.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="266" column="0" selection-start="15972" selection-end="15972" vertical-scroll-proportion="10.395402">
+        <state line="182" column="22" selection-start="10639" selection-end="10639" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/consoleapp/UIController.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_40/jre/lib/jfxrt.jar!/javafx/fxml/FXMLLoader.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="48" selection-start="4998" selection-end="4998" vertical-scroll-proportion="-1.6030701">
+        <state line="237" column="20" selection-start="12587" selection-end="12587" vertical-scroll-proportion="0.25934067" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/FireworkDraws.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="25" selection-start="3286" selection-end="3286" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/JfxController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="353" column="79" selection-start="9957" selection-end="9957" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="549" column="16" selection-start="20965" selection-end="20965" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/FireworkDraws.java">
+    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/Ship.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="9" selection-start="2684" selection-end="2684" vertical-scroll-proportion="0.5519481">
+        <state line="64" column="0" selection-start="2548" selection-end="2548" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/jfxapp/SeaBattleJfx.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="1" selection-start="1917" selection-end="1917" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/GameSeaBattle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="37" selection-start="1767" selection-end="1767" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaCell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="38" selection-start="1255" selection-end="1255" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/gameseabattle/SeaField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="29" selection-start="5785" selection-end="5799" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="151" column="0" selection-start="6980" selection-end="7081" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ru/sergeykravchenko/seabattle/player/ComputerPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="24" selection-start="4442" selection-end="4442" vertical-scroll-proportion="0.5823452">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
