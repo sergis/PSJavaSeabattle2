@@ -1,5 +1,4 @@
 package ru.sergeykravchenko.seabattle.gameseabattle;
-
 /*
  * *   Java 1 Course work (IntelliJ Idea)
  * <h5>Java 1 Lesson 3 Домашнее задание/курсовая работа. класс Игрового поля Игры морской бой/h5>
@@ -7,19 +6,15 @@ package ru.sergeykravchenko.seabattle.gameseabattle;
  * <p>создает игровое поле заданного размера из классов ячеек поля, реализует методы управления полем и выдачи данных для отображения /p>
  * <p></p>
  * <p> </p>
- * <p>методы : </p> <ul>
- * <li>конструктор: запоминает играющих, инициализирует игровое поле, рейд с кораблями, устанавливает статус "настройка" </li>
- * <li> getCell(): возвращает ссылку на заданную ячейку игрового поля </li>
- * <li>TODO: setShip(): устанавливает корабль на поле игры </li>
- * <li>TODO: shotCell(): принимает выстрел создает игровое поле заданного размера</li>
- * <ul>
+ * <p>методы : </p> <dl>
+ * <dt>конструктор:</dt><dd>запоминает играющих, инициализирует игровое поле, рейд с кораблями, устанавливает статус "настройка" </dd>
+ * <dt><code>getCell()</code>:</dt><dd> возвращает ссылку на  ячейку игрового поля заданную координатами (null если ячейки нет)</dd>
+ * <dt><code>placeShip()</code>:</dt><dd> размещает один корабль по заданным координатам
+ * @returns boolean размещен ли корабль</dd>
+ * </dl>
  * @author Sergey Kravchenko
- * @version 0.0
- * @see
- *
- * ? Player, ComputerPlayer, TestSeaBattle,
- * TODO: классы SeaCell
- *
+ * @version 1.0
+ * @see SeaCell, Player, GameSeaBattle
  */
 public class SeaField {
     private SeaCell[][] hSeaCell ;
@@ -32,9 +27,9 @@ public class SeaField {
                 hSeaCell[i][j]=new SeaCell();
 
     }
-
-// Placement for one of Ships on the player Sea Field
-public boolean placeShip(Ship hShip, int xCoordinate, int yCoordinate,boolean isVertical) {
+ // Placement for one of Ships on the player Sea Field
+ // @returns boolean размещен ли корабль
+ public boolean placeShip(Ship hShip, int xCoordinate, int yCoordinate,boolean isVertical) {
     boolean placed = false; // by default ship not placed
     int decks =  hShip.getDecksOnShip();
     if (hSeaCell[xCoordinate][yCoordinate].isEmpty()){
@@ -86,8 +81,6 @@ public boolean placeShip(Ship hShip, int xCoordinate, int yCoordinate,boolean is
             }
         }
         // ячейки доступны, заполняем поле кораблем
-
-
         for (int i=0;i<6+decks*3;i++) {
             if ((((surroundShip[i][0]>=0)&&(surroundShip[i][1]>=0)
                     &&(surroundShip[i][0]<seaSize)&&(surroundShip[i][1]<seaSize)))){ // cell on the field
@@ -106,13 +99,14 @@ public boolean placeShip(Ship hShip, int xCoordinate, int yCoordinate,boolean is
     placed = true;
     }
     return placed; //Ship placed or not
+ }
+ // @return ссылка на объект ячейки игрового поля указанной координатами или null, если ячейки нет
+ public SeaCell getCell(int x, int y){
+    SeaCell target = null;
+    if ((x>=0)&&(y>=0)&&(x<seaSize)&&(y<seaSize)) {
+      target=hSeaCell[x][y];
+    }
+    return target;
+ }
 }
 
-
-
-    // @return ссылка на объект ячейки игрового поля
-public SeaCell getCell(int x, int y){
-
-    return hSeaCell[x][y];
-}
-}

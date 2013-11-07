@@ -2,25 +2,22 @@ package ru.sergeykravchenko.seabattle.gameseabattle;
 import ru.sergeykravchenko.seabattle.player.Player;
 /*
  * *   Java 1 Course work (IntelliJ Idea)
- * <h4>Java 1 Lesson 3 Домашнее задание/курсовая работа</h4>
+ * <h4>Java 1 курсовая работа</h4>
  * <p>Класс реализующий правила игры  Морской бой. контроллер модели (MVC)</p>
  * <p>предназначен для реализации всех методов и свойств связанных с реализацией правил игры /p>
  * <p>все настройки д.б. вынесены в класс управления настройками игры, здесь - только реализация уже заданных параметров</p>
  * <p>   </p>
- * <p>методы : </p> <ul>
- * <li>конструктор: запоминает играющих, инициализирует игровое поле, рейд с кораблями, устанавливает статус "настройка" </li>
- * <li>TODO: setGameMode(): вызывается из контроллера настройки, устанавливает параметры игры по-умолчанию(см.описание метода)</li>
- *
- * <li>TODO: setSeaField(): реализует расстановкукораблей</li>
- * <li>TODO: playGame(): реализует исполнение одного хода и определяет кто ходит следующим</li>
- * <li>TODO: stopGame(): останавливает игру, (прерывает по команде игрока или по завершении ходов).полезен для переигровки и тп </li>
- * <li>TODO: quitGame(): прекращает игру</li>
- * <ul>
+ * <p>методы : </p> <dl>
+ * <dt>конструктор:</dt><dd> запоминает играющих, инициализирует игровое поле, рейд с кораблями, устанавливает статус "настройка" </dd>
+ * <dt><code>fireTarget()</code> </dt><dd>выполняет выстрел Игрока по полю противника </dd>
+ * <dt><code>getNavyShipDecks()</code></dt><dd>  // @return Short[] массив распределения палуб на кораблях флота</dd>
+ * <dt>TODO: <code>playGame()</code>:</dt><dd> реализует исполнение одного хода и определяет кто ходит следующим</dd>
+ * <dt>TODO: <code>stopGame()</code>:</dt><dd> останавливает игру, (прерывает по команде игрока или по завершении ходов).полезен для переигровки и тп </dd>
+ * <dt>TODO: <code>quitGame()</code>:</dt><dd> прекращает игру</dd>
+ * </dl>
  * @author Sergey Kravchenko
- * @version 0.0
- * @see    Player, ComputerPlayer, TestSeaBattle,
- * TODO: классы Ship, Cell
- *
+ * @version 1.0
+ * @see    Player, ComputerPlayer
  */
 public class GameSeaBattle {
 
@@ -29,7 +26,7 @@ public class GameSeaBattle {
     private SeaField hSeaField;
     //private Ship[] hNavy;
     private Short[] navyShipDecks;
-    private short nextStepPlayer; //
+    private short nextStepPlayer ;
  public GameSeaBattle(Player hPlayer1, Player hPlayer2){
 	if ((hPlayer1!=null)&&(hPlayer2!=null)) 	{
 		    hhPlayers = new Player[2];
@@ -37,7 +34,8 @@ public class GameSeaBattle {
 		    hhPlayers[1] = hPlayer2;
             hPlayer1.sethGame(this);
             hPlayer2.sethGame(this);
-            nextStepPlayer = 0;
+            hPlayer1.setMyTurn(true);
+            nextStepPlayer = 0;  // индекс игрока для следующего хода
             seaSize = 10;        // Default SeaSize
             navyShipDecks = new Short[10];
             navyShipDecks[0]=4;  // 4 decks ship = 1
@@ -47,26 +45,26 @@ public class GameSeaBattle {
             navyShipDecks[6]=1;
             navyShipDecks[7]=1; navyShipDecks[8]=1;
             navyShipDecks[9]=1;// 1 decks ship = 4
-
-		  //  System.out.println ("Game SeaBattle Controller started with 2 players and 10 ships");
 	    }else {
             System.out.println("Game SeaBattle Controller aborted, invalid Players");
     }
  }
+
  // Player firing to target
- // @return boolean if fire was shot or missing
+ // @params fired Player, target coordinates x and y
+ // @return boolean true if fire was shot or false if missing
  public boolean fireTarget(Player hPlayer, int xTarget, int yTarget) {
     boolean fireShot = false;
     Player targetPlayer;
     if ((hhPlayers!=null)&&(hPlayer!=null)) {
          if (hPlayer==hhPlayers[0]) targetPlayer =hhPlayers[1];
             else targetPlayer = hhPlayers[0];
-         fireShot = targetPlayer.fireBoom(xTarget, yTarget);
 
+         fireShot = targetPlayer.fireBoom(xTarget, yTarget);
      }
     return fireShot;
  }
-
+ //
  public void playGame (Player hPlayer1, Player hPlayer2) {
 	    System.out.println ("Play SeaBattle step done ");
  }

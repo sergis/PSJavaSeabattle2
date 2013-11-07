@@ -2,8 +2,11 @@ package ru.sergeykravchenko.seabattle.jfxapp;
 
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -11,22 +14,51 @@ import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+import javafx.scene.shape.*;
 import ru.sergeykravchenko.seabattle.gameseabattle.Ship;
 import ru.sergeykravchenko.seabattle.player.Player;
-
+ /*
+ *   Java 1 Course work (IntelliJ Idea)
+ * <h5>Java 1 курсовая работа. класс контроллера интерфейса JAVAFX для игры морской бой/h5>
+ * <p>Класс реализует создание и методы работы с интерфейсом отображения JAVAFX в игре  Морской бой </p>
+ * <p> MVC: класс интерфейса отображения для игрока</p>
+ * <p> обработчики выполняются в потоке JAVAFX, формы отображения задаются файлом FXML.</p>
+ *
+ * <p>взаимодействует с потоком игрока - компьютера. </p>
+ * <p>методы : </p> <dl>
+ * <dt>конструктор: </dt>
+ * <dd>инициализирует данные об игроке, задает имя, статус активности (наблюдатель или нет)</dd>
+ * <dt> <code>tunePlayer()</code>:</dt>
+ * <dd> проверяет и установливает настройки игры задаваемые Игроком, в т.ч. расстановку кораблей </dd>
+ * <dt> <code>fireBoom()</code>:</dt>
+ * <dd> рeализует выстрел противника по полю игрока</dd>
+ * <dt> <code>placePlayerNavy()</code>:</dt>
+ * <dd> размещает случайным образом корабли на поле данного игрока</dd>
+ * <dt> <code>place2ndPlayerNavy()</code>:</dt>
+ * <dd> размещает случайным образом корабли на поле противника у данного игрока игрока</dd>
+ * <dt> <code>placeShipsAutomatically(SeaField playerTheater)<code></dt>
+ * <dd>размещает корабли случайным образом на указанном поле</dd>
+ * </dl>
+ * @author Sergey Kravchenko
+ * @version 0.0
+ * @see  ComputerPlayer, GameSeaBattle, SeaField, SeaCell
+  *
+ */
 
 public class JfxController {
 
     static int xpos,ypos, xadd,yadd;
-    public static FireworkDraws fireworkDraws;// = new FireworkDraws();      // Firework field to draw
+    public static FireworkDraws fireworkDraws;  // Firework field to draw
+    JfxAnimations jfxAnimatons ;
+    @FXML
+    public StackPane playMapStack;
+
+
     private boolean fireTogglePressed = false;
     private boolean fireScopeTrace = false;
     boolean navyPlaced = false;
@@ -34,6 +66,10 @@ public class JfxController {
     private double sC = 0;
     private double sX = 0;
     private double sY = 0;
+
+    @FXML
+    private AnchorPane wholeWin;
+    public AnchorPane getWholeWin() { return wholeWin; }
 
     @FXML
     private ResourceBundle resources;
@@ -46,7 +82,6 @@ public class JfxController {
 
     @FXML
     private ImageView shipWheel;
-
 
     @FXML
     private HBox scopeVisor;
@@ -65,9 +100,6 @@ public class JfxController {
 
     @FXML
     private GridPane playMapGrids;
-
-    @FXML
-    private StackPane playMapStack;
 
     @FXML
     private GridPane playerMap;
@@ -141,7 +173,6 @@ public class JfxController {
     @FXML
     private HBox ships4dVertical;
 
-
     @FXML
     private GridPane targetMap;
 
@@ -155,16 +186,40 @@ public class JfxController {
     private ToggleButton fireToggleB;
 
     @FXML
-    void fireToggleButton(ActionEvent event) { System.out.println("FireToggleButton pressed:");
+    private ListView<String> console;
+
+    //create a observableArrayList of logged events that will be listed in console
+    final ObservableList<String> consoleObservableList = FXCollections.observableArrayList();
+    private void showOnConsole(String text) {
+        //if there is 3 items in list, delete first log message, shift other logs and  add a new one to end position
+        if (console.getItems().isEmpty())
+            console.setItems(consoleObservableList);
+        if (consoleObservableList.size() == 3) {
+            consoleObservableList.remove(0);
+        }
+        consoleObservableList.add(text);
+    }
+    @FXML
+    private  StackPane consoleMessages;
+
+    void showMessage(String msg) {
+        //message.setText(msg);
+        showOnConsole(msg);
+    }
+
+    @FXML
+    void fireToggleButton(ActionEvent event) {
+        showMessage("FireToggleButton pressed:");
         if (fireToggleB.isSelected()) {
+
             fireToggleB.setText("Fire!");
+            jfxAnimatons = new JfxAnimations(this);
             placeNavyAuto();
             menuPlaceShipsAuto.setDisable(true);
 
             fireTogglePressed=true;
-            setFireTargeting();   // TODO: move to firework initialization, don't nee too much event handlers!!!
             scopeVisor.setVisible(true);
-            System.out.println("Point Target! ");
+            showMessage("Your turn. Point Target! ");
         }
         else {
             fireTogglePressed=false;
@@ -173,7 +228,7 @@ public class JfxController {
 
     @FXML
     void playerMapClicked(MouseEvent event) {
-
+    // TODO: сделать обработку установки источника анимированного выстрела, перетаскивания кораблей и т.п.
         System.out.println("Event.x:"+event.getX()+" y:"+event.getY());
         System.out.println("Scene.x:"+event.getSceneX()+" y:"+event.getSceneY());
         System.out.println("Screen.x:"+event.getScreenX()+" y:"+event.getScreenY());
@@ -181,201 +236,60 @@ public class JfxController {
     }
 
     @FXML
+    private MenuItem menuLoad;
+    @FXML
     void menuLoadItem(ActionEvent event) {
-        System.out.println("Action LOAD called");
-    /*    if (fireworkDraws!=null){
-            fireworkDraws.stop();
-            // TODO: ??  STOP EVENTS IF ANY
-        }
-        fireworkDraws = new FireworkDraws(playMapStack);
-
-        if (!playMapStack.getChildren().contains(fireworkDraws)) {
-
-            playMapStack.getChildren().add(fireworkDraws);
-
-            fireworkDraws.start();
-//            setFireTargeting();
-        }
-        System.out.println("Fireworks & Targeting added ");
-    */
+       menuLoad.setDisable(true);
+       showMessage("SORRY.Action LOAD disabled");
     }
-    //
-    private void setFireTargeting() {
-        // Set Ons and binding for Fire Toggle Button Press
-
-//        System.out.println("Scopevisor.x:"+scopeVisor.layoutXProperty()+" y:"+scopeVisor.layoutYProperty());
-
-        sC = scopeVisor.getWidth()/2;
-
-        if (!targetMap.getChildren().contains(scopeVisor))
-            targetMap.getChildren().add(scopeVisor);
-        scopeVisor.setLayoutX(targetMap.getWidth()/2);
-        scopeVisor.setLayoutY(targetMap.getHeight()/2);
-        //   Mouse Event Handlers
-        targetMap.setOnMouseEntered(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                targetMap.setCursor(Cursor.HAND);
-                //    targetMap.setConstraints(scopeVisor,4,4);//,2,2, HPos.LEFT, VPos.TOP);
-                if (fireTogglePressed){
-//                    System.out.println("SCOPEvisor.x:"+scopeVisor.layoutXProperty()+" y:"+scopeVisor.layoutYProperty());
-                    fireScopeTrace = true;
-                    sX=event.getX(); sY=event.getY();
-                    scopeVisor.setLayoutX(sX-sC);
-                    scopeVisor.setLayoutY(sY-sC);
-                    scopeVisor.setVisible(true);
-                 }
-            }
-        });
-        //
-        targetMap.setOnMouseExited(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                targetMap.setCursor(Cursor.DEFAULT);
-                fireScopeTrace = false;
-                scopeVisor.setVisible(false);
-            }
-        });
-        //
-        targetMap.setOnMouseMoved(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-
-                //    sX = event.getX()-sC-coordXReal.getValue();
-                //    sY = event.getY()-sC-coordYReal.getValue();
-                //    coordXReal.setValue(event.getX() -sX);
-                //    coordYReal.setValue(event.getY() -sY);
-                if (fireScopeTrace){
-                    sX=event.getX(); sY=event.getY();
-                    if ((sX>=0)&&(sY>=0)&&(sX<targetMap.getWidth())&&(sY<targetMap.getHeight()))
-                    {
-                        scopeVisor.setLayoutX(sX-sC);
-                        scopeVisor.setLayoutY(sY-sC);
-                        scopeVisor.toFront();
-                    }
-                }
-            }
-        });
-        //
-        targetMap.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-
-                if (fireTogglePressed){
-                    sX=event.getX(); sY=event.getY();
-//                    System.out.println("Event.sX:"+sX+" sY:"+sY);
-                    scopeVisor.setLayoutX(sX-sC);
-                    scopeVisor.setLayoutY(sY-sC);
-
-                    if ((fireToMap(SeaBattleJfx.hPlayer,targetMap, sX, sY)) ) {
-                      if (SeaBattleJfx.hComputer.isDefeated()) {
-                         System.out.println("You are WIN. GAME OVER");
-                      } else {
-                          System.out.println("FIRE again");
-                      }
-                    } else { // Ответный ход TODO: переделать через Game Controller!
-                            // TODO: использовать другой поток для ответных ходов компьютера
-                        if (fireToMap(SeaBattleJfx.hComputer, playerMap,sX,sY)) {
-                            // компьютер попал
-                            if (SeaBattleJfx.hPlayer.isDefeated()) {
-                                System.out.println("Computer are WIN. GAME OVER");
-                            } else {
-                                System.out.println("Computer Should FIRE again");
-                            }
-                        }
-                    }
-                }
-//                System.out.println("FIRED Target! ");
-            }
-        });
-        System.out.println("Fire  TARGETED ");
-    }
-    // выстрел по игровому полю
-    // @return boolean true если попадание или нужно повторить выстрел (промах мимо поля)
-    private boolean fireToMap(Player firedPlayer, GridPane targetedMap, double sTargetX, double sTargetY) {
-        //
-        if (playMapStack.getChildren().contains(fireworkDraws)) {
-            fireworkDraws.fireBullet(5,5,500,100);
-            System.out.println("FireBullet FIRED ");
-        }
-        //  mark cell as fired
-        double tGridWidth  = targetedMap.getWidth()/10;
-        double tGridHeight = targetedMap.getHeight()/10;
-        int tGridRow = (int) (sTargetY /tGridHeight  );
-        int tGridCol = (int) (sTargetX /tGridWidth );
-        if ((tGridRow>=0)&&(tGridRow<10)&&(tGridCol>=0)&&(tGridCol<10)){
-            Circle firedCell;
-            firedCell = new Circle(tGridWidth/2-2, Color.ORANGE);
-           // System.out.println("target Row:"+tGridRow+" targetCol:"+tGridCol);
-            targetedMap.getChildren().add(firedCell);
-            targetedMap.setRowIndex(firedCell, tGridRow);
-            targetedMap.setColumnIndex(firedCell, tGridCol);
-
-            if (SeaBattleJfx.hSeaBattle.fireTarget(firedPlayer,tGridCol,tGridRow)) {
-                // попал . System.out.println("Your FIRE hit the target! ");
-                firedCell.setFill(Color.ORANGERED);
-            }
-            else return false;//  промах. возможен ответный ход
-
-        }
-        else System.out.println("target Row:"+tGridRow+" targetCol:"+tGridCol+ " OUT OF MAP");
-        return true; //  попал или надо повторить выстрел
-    } //
 
     @FXML
+    private MenuItem menuPlay;
+    @FXML
     void menuPlayItem(ActionEvent event) {
-        System.out.println("Action Play called");
-        // Temporary fire one bullet
-        if (playMapStack.getChildren().contains(fireworkDraws)) {
-            fireworkDraws.fireBullet(5,5,500,100);
-            System.out.println("Fireworks started ");
-        }
-
+        showMessage("Action Play called. Please press PLAY button");
     }
+
     // Quit the Java FX Application
     @FXML
     void menuQuitItem(ActionEvent event) {
-        System.out.println("GAME IS ABOUT TO QUIT");
+        showMessage("GAME IS ABOUT TO QUIT");
         Platform.exit();
     }
 
     @FXML
+    private MenuItem menuSave;
+    @FXML
     void menuSaveItem(ActionEvent event) {
-        System.out.println("Action SAVE called");
-      // Temporary starting fireworks
-        if (playMapStack.getChildren().contains(fireworkDraws)) {
-            fireworkDraws.start();
-            System.out.println("Fireworks started ");
-        }
+       showMessage("Action SAVE called");
+        menuSave.setDisable(true);
+        showMessage("SORRY.Action SAVE disabled");
     }
 
+    @FXML
+    private MenuItem menuStop;
     @FXML
     void menuStopItem(ActionEvent event) {
-        System.out.println("Action STOP called");
-        // Temporary stopping fireworks
-        if (playMapStack.getChildren().contains(fireworkDraws)) {
-            fireworkDraws.stop();
-            System.out.println("Fireworks STOPed ");
-        }
+        //System.out.println
+        showMessage("Action STOP called");
+        menuStop.setDisable(true);
+        showMessage("SORRY.Action STOP disabled");
+
     }
-//  ***  Menu Tune definitions  ***
+//  ***  Sub Menu Items of Menu.Tune definitions  ***
     @FXML
     private MenuItem menuPlaceShip;
-
     @FXML
     private MenuItem menuPlaceShipsAuto;
-
     @FXML
     private MenuItem menuRemoveShip;
-
     @FXML
     private MenuItem menuRotateShip;
 
     @FXML
     void menuPlaceShip(ActionEvent event) {
         menuPlaceShip.setDisable(true);
-        System.out.println("Action PLACE SHIP called");
-
+        showMessage("Action PLACE SHIP disabled");
     }
 
     @FXML
@@ -430,8 +344,7 @@ public class JfxController {
                 }
             }
             navyPlaced = true;
-
-            System.out.println("Ships placed!");
+            showMessage("Ships placed AUTOMATICALLY!");
         } else {
             return;
         }
@@ -440,11 +353,13 @@ public class JfxController {
     @FXML
     void menuRemoveShip(ActionEvent event) {
         menuRemoveShip.setDisable(true);
+        showMessage("*menuRemoveShip disabled!");
     }
 
     @FXML
     void menuRotateShip(ActionEvent event) {
         menuRotateShip.setDisable(true);
+        showMessage("*menuRotateShip disabled!");
     }
 
     @FXML
@@ -491,8 +406,155 @@ public class JfxController {
         assert topHeader != null : "fx:id=\"topHeader\" was not injected: check your FXML file 'seabattle.fxml'.";
         assert yMapNames != null : "fx:id=\"yMapNames\" was not injected: check your FXML file 'seabattle.fxml'.";
 
-
-
     }
+    // инициализация отрисовок выстрелов и прицеливания на поле противника
+    public void setFireTargeting() {         // Set Ons and binding for Fire Toggle Button Press
 
+        JfxAnimations jfxAnimations= new JfxAnimations(this);
+
+
+        if (!targetMap.getChildren().contains(scopeVisor))
+            targetMap.getChildren().add(scopeVisor);
+        scopeVisor.setLayoutX(targetMap.getWidth()/2);
+        scopeVisor.setLayoutY(targetMap.getHeight()/2);
+        //   Mouse Event Handlers
+        targetMap.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                targetMap.setCursor(Cursor.HAND);
+                if (fireTogglePressed){
+                    fireScopeTrace = true;
+                    sX=event.getX(); sY=event.getY();
+                    sC = scopeVisor.getWidth()/2;
+                    scopeVisor.setLayoutX(sX-sC*2);
+                    scopeVisor.setLayoutY(sY-sC*2);
+                    scopeVisor.setVisible(true);
+                }
+            }
+        });
+        //
+        targetMap.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                targetMap.setCursor(Cursor.DEFAULT);
+                fireScopeTrace = false;
+                scopeVisor.setVisible(false);
+            }
+        });
+        //
+        targetMap.setOnMouseMoved(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (fireScopeTrace) {
+                    sX = event.getX();
+                    sY = event.getY();
+                    sC = scopeVisor.getWidth()/2;
+                    if ((sX >= 0) && (sY >= 0) && (sX < targetMap.getWidth()) && (sY < targetMap.getHeight())) {
+                        scopeVisor.setLayoutX(sX - sC);
+                        scopeVisor.setLayoutY(sY - sC);
+                        scopeVisor.toFront();
+                    }
+                }
+            }
+        });
+        //
+        targetMap.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (fireTogglePressed) {
+                    sX = event.getX();
+                    sY = event.getY();
+                    sC = scopeVisor.getWidth()/2;
+                    scopeVisor.setLayoutX(sX - sC);
+                    scopeVisor.setLayoutY(sY - sC);
+
+                    // find firing source
+                    ArrayList<Ship> hShips = SeaBattleJfx.hPlayer.getPlayerNavyArray();
+                    JfxAnimationQuery pQuery = new JfxAnimationQuery();
+                    for (Ship ship : hShips)
+                        if (ship.isInBattle()) {
+                            pQuery.setShip2D(playerMap.localToScene(ship.getyCoordinate() * playerMap.getHeight() / 10 + 5,
+                                                                    ship.getxCoordinate() * playerMap.getWidth() / 10 + 5
+                                            ));
+                            pQuery.setTarget2D(targetMap.localToScene(event.getX(), event.getY()));
+                            jfxAnimatons.getQueueFireAnimation().add(pQuery);// animate player fire shot
+                            break;
+                        }
+
+                    if ((fireOnMap(SeaBattleJfx.hPlayer, targetMap, sX, sY,pQuery ))) {
+                        if (SeaBattleJfx.hComputer.isDefeated()) {
+                            showMessage("You WON. GAME OVER");
+
+                        } else {
+                            showMessage("Your TURN. FIRE again");
+                        }
+                    } else { // Ответный ход TODO: переделать через Game Controller!
+                        SeaBattleJfx.hComputer.setMyTurn(true);
+                        // find firing source
+                        ArrayList<Ship> hCShips = SeaBattleJfx.hComputer.getPlayerNavyArray();
+                        JfxAnimationQuery cQuery = new JfxAnimationQuery();
+
+                        for (Ship ship : hCShips)
+                            if (ship.isInBattle()) {
+                                cQuery.setShip2D(targetMap.localToScene(ship.getxCoordinate() * targetMap.getWidth() / 10 + 5,
+                                                                      ship.getyCoordinate() * targetMap.getHeight() / 10 + 5
+                                                ));
+                                cQuery.setTarget2D(playerMap.localToScene( sX,sY ));
+                                cQuery.setPlay(false);
+                                jfxAnimatons.getQueueFireAnimation().add(cQuery);// animate fire shot
+                                break;
+                            }
+                        // ответный выстрел компьютера
+                        if (fireOnMap(SeaBattleJfx.hComputer, playerMap, sX, sY,cQuery )) {
+                            // компьютер попал
+                            if (SeaBattleJfx.hPlayer.isDefeated()) {
+                                showMessage("Computer WON. GAME OVER");
+                            } else {
+                                showMessage("Computer TURN. It should FIRE again");
+                            }
+                        }
+                      //  SeaBattleJfx.hComputer.setMyTurn(false);
+                    }
+                }
+            }
+        });
+    // System.out.println("Fire  TARGETED ");
+    }
+    // выстрел по игровому полю
+    // @return boolean true если попадание или нужно повторить выстрел (промах мимо поля)
+    private boolean fireOnMap(Player firedPlayer, GridPane targetedMap, double sTargetX, double sTargetY, JfxAnimationQuery tQuery) {
+
+        double tGridWidth  = targetedMap.getWidth()/10;
+        double tGridHeight = targetedMap.getHeight()/10;
+        int tGridRow = (int) (sTargetY /tGridHeight  );
+        int tGridCol = (int) (sTargetX /tGridWidth );
+
+        if ((tGridRow>=0)&&(tGridRow<10)&&(tGridCol>=0)&&(tGridCol<10)){
+            if (tQuery!=null) {
+                tQuery.setTargetMap(targetedMap,tGridRow,tGridCol);
+                tQuery.setColor(Color.ORANGE);
+            // System.out.println("target Row:"+tGridRow+" targetCol:"+tGridCol);
+            if (SeaBattleJfx.hSeaBattle.fireTarget(firedPlayer,tGridCol,tGridRow))
+                tQuery.setColor(Color.ORANGERED); // попал !
+            else return false;//  промах. возможен ответный ход
+            }
+        }
+        else showMessage("Target Row:" + tGridRow + " TargetCol:" + tGridCol + " is OUT OF MAP");
+
+        return true; //  попал или надо повторить выстрел
+    }
+  //
+    // every frame method callable to JFX controller from animation timer handler
+    public void everyFrameHandler() {
+
+        if (jfxAnimatons!=null)
+            jfxAnimatons.execAnimateFireShot();
+   }
+
+    @FXML
+    private HBox navyBank;
+    public HBox getNavyBank() { return navyBank; }
+    @FXML
+    private HBox bullet;
+    public HBox getBullet() {  return bullet; }
 }

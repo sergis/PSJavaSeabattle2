@@ -1,43 +1,49 @@
 package ru.sergeykravchenko.seabattle.player;
 
+import ru.sergeykravchenko.seabattle.consoleapp.UIController;
 import ru.sergeykravchenko.seabattle.gameseabattle.GameSeaBattle;
 import ru.sergeykravchenko.seabattle.gameseabattle.SeaField;
 import ru.sergeykravchenko.seabattle.gameseabattle.Ship;
-import ru.sergeykravchenko.seabattle.consoleapp.UIController;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 /*
  *   Java 1 Course work (IntelliJ Idea)
- * <h5>Java 1 Lesson 4 Домашнее задание/курсовая работа. класс Player для игры морской бой/h5>
+ * <h5>Java 1 курсовая работа. класс Player для игры морской бой/h5>
  * <p>Класс реализует создание и методы работы с объектом Игрока в игре  Морской бой </p>
- * <p>/p>
- * <p></p>
  * <p> MVC: класс модели интерфейса  игрока</p>
- * <p>методы : </p> <ul>
- * <li>конструктор: инициализирует данные об игроке, задает имя, статус активности (наблюдатель или нет)
- * <li> <code>tunePlayer()</code>: проверяет и установливает настройки игры задаваемые Игроком, в т.ч. расстановку кораблей </li>
- * <li> <code>fireBoom()</code>: рeализует выстрел противника по полю игрока</li>
- * <li> <code>placePlayerNavy()</code>: размещает случайным образом корабли на поле данного игрока</li>
- * <li> <code>place2ndPlayerNavy()</code>: размещает случайным образом корабли на поле противника у данного игрока игрока</li>
- * <li> <code>placeShipsAutomatically(SeaField playerTheater)<code> размещает корабли случайным образом на указанном поле</li>
- * <ul>
+ * <p>методы : </p> <dl>
+ * <dt>конструктор: </dt>
+ * <dd>инициализирует данные об игроке, задает имя, статус активности (наблюдатель или нет)</dd>
+ * <dt> <code>tunePlayer()</code>:</dt>
+ * <dd> проверяет и установливает настройки игры задаваемые Игроком, в т.ч. расстановку кораблей </dd>
+ * <dt> <code>fireBoom()</code>:</dt>
+ * <dd> рeализует выстрел противника по полю игрока</dd>
+ * <dt> <code>placePlayerNavy()</code>:</dt>
+ * <dd> размещает случайным образом корабли на поле данного игрока</dd>
+ * <dt> <code>place2ndPlayerNavy()</code>:</dt>
+ * <dd> размещает случайным образом корабли на поле противника у данного игрока игрока</dd>
+ * <dt> <code>placeShipsAutomatically(SeaField playerTheater)<code></dt>
+ * <dd>размещает корабли случайным образом на указанном поле</dd>
+ * </dl>
  * @author Sergey Kravchenko
  * @version 0.0
- * @see  ,
- *? Player, ComputerPlayer, TestSeaBattle,
+ * @see  ComputerPlayer, GameSeaBattle, SeaField, SeaCell
   *
  */
 public class Player {
 
     private boolean defeated;  // = true if GAME OVER and the player LOST
 
+
     // Команды/состояния пользовательского интерфейса игрока
     public enum PlayerMode {WAIT, START, QUIT, STOP,//  параметры команд будут передаваться
                             SETSHIP, SETFIELD,      //в сопутствующем массиве параметров
                             SETNAME
     }
+    protected boolean myTurn;
+    //protected ArrayList<SeaField.Coords> turnsLog ;
     protected PlayerMode cmdPlayer = PlayerMode.WAIT;
     protected UIController hPlayerUI;
     protected String playerName;
@@ -61,8 +67,8 @@ public class Player {
 
         playerSea[0]= new SeaField(playerSeaSize); // Player Sea Field always exists
         playerSea[1]= new SeaField(playerSeaSize); // Target Sea Field always exists
-
-      //  System.out.println ("Game Player Controller started:"+playerName);
+        myTurn = false;
+       // turnsLog = new ArrayList<SeaField.Coords> (playerSeaSize*playerSeaSize); //журнал "Ходы противника"
         defeated = false;
     }
     //  метод для реализации настроек, задаваемых игроком
@@ -112,7 +118,6 @@ public class Player {
         }
          System.out.println (playerName+":Tuner DONE. next cmd "+ cmdPlayer);
     }
-
 // размещает случайным образом корабли на поле игрока
 // @return boolean если все корабли размещены на поле
   public boolean placePlayerNavy(){
@@ -158,16 +163,17 @@ public class Player {
       return placed;
     }
     /*
-     *  #fireBoom
-     *  метод для реализации выстрела противника по кораблю игрока
+     * #fireBoom  метод для реализации выстрела противника по кораблю игрока
+     * @params (x,y) координаты цели на поле игрока
      * @return boolean попал противник или нет по кораблю игрока
      * также устанавливает свойство defeated если все корабли поражены
     */
-    public boolean fireBoom(int xTarget, int yTarget) {
+    public synchronized boolean fireBoom(int xTarget, int yTarget) {
         boolean fireShot = false;
 
         if ((xTarget>=0)&&(xTarget<10)&&(yTarget>=0)&&(yTarget<10)) {
             fireShot = playerSea[0].getCell(xTarget,yTarget).fireCell();
+
             if (fireShot) {
                 for (Ship hShip:hNavy) {
                     if (hShip.isInBattle()) {
@@ -202,10 +208,14 @@ public class Player {
     }
     // @return boolean если игрок побежден
     public boolean isDefeated () {return defeated;}
+     // устанавливает очередность хода для игрока
+    public synchronized void setMyTurn(boolean myTurn) {this.myTurn = myTurn; }
+    // @return boolean true если следующий ход этого игрока
+    public synchronized boolean isMyTurn() {return this.myTurn; }
     //  связывает игрока с контроллером правил игры
-    public void sethGame(GameSeaBattle gameSeaBattle){
-       hGame = gameSeaBattle;
-    }
+    public synchronized void sethGame(GameSeaBattle gameSeaBattle){ hGame = gameSeaBattle; }
+
+    public synchronized GameSeaBattle gethGame() {return hGame;}
     /*
     * Player#getPlayerName()
     * @return playerName

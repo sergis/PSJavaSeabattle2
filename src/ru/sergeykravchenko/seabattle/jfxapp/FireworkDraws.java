@@ -1,14 +1,12 @@
 package ru.sergeykravchenko.seabattle.jfxapp;
 
 import javafx.animation.AnimationTimer;
-import javafx.scene.Parent;
+import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.Reflection;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.*;
 
 import java.util.ArrayList;
@@ -23,22 +21,21 @@ import java.util.List;
  * <p> Based on source of:
  * Java  Ensemble Samples(Fireworks in Canvas) Copyright (c) 2008, 2012 Oracle and/or its affiliates.</p>
  * <p>методы : </p> <ul>
- * <li>конструктор: инициализирует данные о 
- * <ul>
- * @author Sergey Kravchenko
+ * @author Sergey Kravchenko   , based on Oracle
  * @version 0.0
  * @see  , 
  */
 public class FireworkDraws extends Pane {
+    final int EXPLOSIONS =24, FIRESIZE=9;
 
     private final AnimationTimer timer;
     private final Canvas canvas;
-    //private final ImageView background;
+
     private final List<Particle> particles = new ArrayList<Particle>();
     private final Paint[] colors;
-    private int countDownTillNextFirework = 40;
+  //  private int countDownTillNextFirework = 40;
 
-    public FireworkDraws(StackPane parentStackPane) {
+    public FireworkDraws(Group parentStackPane){//StackPane parentStackPane) {
          // create a color palette of 180 colors
          colors = new Paint[181];
          colors[0] = new RadialGradient(0, 0, 0.5, 0.5, 0.5, true, CycleMethod.NO_CYCLE,
@@ -57,61 +54,49 @@ public class FireworkDraws extends Pane {
                             );
          }
          // create canvas
-         canvas = new Canvas(parentStackPane.getWidth(),parentStackPane.getHeight());//(1024, 500);
+
+         canvas = new Canvas(700, 400);
          canvas.setBlendMode(BlendMode.ADD);
          canvas.setEffect(new Reflection(0,0.4,0.15,0));
-         //background = new ImageView(getClass().getResource("images/28avianavy.jpg").toExternalForm());
 
          parentStackPane.getChildren().add(canvas);
          canvas.setMouseTransparent(true);
-
          // create animation timer that will be called every frame
-         // final AnimationTimer timer = new AnimationTimer() {
-
          timer = new AnimationTimer() {
-
-                    @Override public void handle(long now) {
-
-                        GraphicsContext gc = canvas.getGraphicsContext2D();
-                        // clear area with transparent black
-                        gc.setFill(Color.rgb(0, 0, 0, 0.2));
-                        gc.fillRect(0, 0, 650, 400);
-                        // draw fireworks
-
-             //           drawFireworks(gc);
-
-                        // countdown to launching the next firework
-
-                        if (countDownTillNextFirework == 0) {
-                            countDownTillNextFirework = 10 + (int)(Math.random()*30);
-     //                       fireParticle();
-                        }
-                        countDownTillNextFirework --;
+                    @Override
+                    public void handle(long now) {
+                        SeaBattleJfx.mainJfx.everyFrameHandler();
+                        drawframe();
                     }
          };
     }  // constructor done
 
+    // drawing every frame
+    public void drawframe() {
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        // clear area with transparent black
+        gc.setFill(Color.rgb(0, 0, 0, 0.2));
+        gc.fillRect(0, 0, 700, 400);
+        // draw fireworks
+        drawFireworks(gc);
+    }
     public void start() { timer.start(); }
     public void stop() { timer.stop(); }
-    //  Fire Bullet Particle
-    public void fireBullet (double posX, double posY,
-                            double targetX, double targetY){
+    //  Fire Bullet Particle Explosion
+    public void explodeBullet(double targetX, double targetY){
 
         particles.add(new Particle(
-                canvas.getWidth()*0.5, canvas.getHeight()/2+10, //  double posX, double posY,
-                Math.random() * 5 - 2.5, 0,  //double velX, double velY,
-                0, 150 + Math.random() * 100,// double targetX, double targetY
-                colors[0], 9,                // Paint color,int size
+                targetX,  targetY,       // posX,  posY
+                0f, 0f,                    // velX,  velY,
+                targetX,  targetY, //0, 150 + Math.random() * 100,// double targetX, double targetY
+                colors[0], FIRESIZE,                // Paint color,int size
                 false, true, true));        // NOT use Physics, shouldExplodeChildren, hasTail
     }
-
         /**
           * Make resizable and keep background image proportions and center.
           */
     @Override
     protected void layoutChildren() {
-                // final double w = 480.0;
-                // final double h = 360.0;
 
                 final double w = getWidth();
                 final double h = getHeight();
@@ -121,9 +106,6 @@ public class FireworkDraws extends Pane {
                 final int x = (int)((w-width)/2);
                 final int y = (int)((h-height)/2);
 
-           //     background.relocate(x, y);
-           //     background.setFitWidth(width);
-           //     background.setFitHeight(height);
                 canvas.relocate(x, y);
                 canvas.setWidth(width);
                 canvas.setHeight(height *0.9);// 0.706);
@@ -139,11 +121,9 @@ public class FireworkDraws extends Pane {
                     iter.remove();     // remove particle from those drawn
                     // check if it should be exploded
                     if(firework.shouldExplodeChildren) {
-                        if(firework.size == 9) {
+                        if(firework.size == FIRESIZE) {
                            explodeCircle(firework, newParticles);
-                        } else if(firework.size == 8) {
-                                  explodeSmallCircle(firework, newParticles);
-                               }
+                        }
                     }
                }
                firework.draw(gc);
@@ -157,13 +137,13 @@ public class FireworkDraws extends Pane {
                       canvas.getWidth()*0.5, canvas.getHeight()+10,
                       Math.random() * 5 - 2.5, 0,  //double velX, double velY,
                       0, 150 + Math.random() * 100,//
-                      colors[0], 9,                // Paint color,int size
+                      colors[0], FIRESIZE,                // Paint color,int size
                       false, true, true));        // DO NOT use Physics, shouldExplodeChildren, hasTail
     }
-    // Explode big circle into smaller ones able to explode
+    // Explode big circle into smaller ones
     private void explodeCircle(Particle firework, List<Particle> newParticles) {
 
-        final int count = 20 + (int)(60*Math.random());
+        final int count = EXPLOSIONS *2 + (int)(60*Math.random());
         final boolean shouldExplodeChildren = Math.random() > 0.5;
         final double angle = (Math.PI * 2) / count;
         final int color = (int)(Math.random()*colors.length);
@@ -176,21 +156,6 @@ public class FireworkDraws extends Pane {
                              0, 0,
                              colors[color], 8,                    // Paint color,int size
                              true, shouldExplodeChildren, true)); // USE Physics, shouldExplodeChildren, hasTail
-        }
-    }
-    //  Explode secondary particles
-    private void explodeSmallCircle(Particle firework, List<Particle> newParticles) {
-
-        final double angle = (Math.PI * 2) / 12;
-
-        for(int count=12; count>0; count--) {
-            double randomVelocity = 2 + Math.random() * 2;
-            double particleAngle = count * angle;
-            newParticles.add(new Particle(firework.posX, firework.posY,
-                                    Math.cos(particleAngle) * randomVelocity, Math.sin(particleAngle) * randomVelocity,
-                                    0, 0,
-                                    firework.color, 4,     // Paint color,int size
-                                    true, false, false));  // USE Physics, should NOT ExplodeChildren, has NOT Tail
         }
     }
 } // class  FireworkDraws ended

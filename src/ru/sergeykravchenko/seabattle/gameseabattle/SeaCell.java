@@ -1,23 +1,24 @@
 package ru.sergeykravchenko.seabattle.gameseabattle;
-
 /*
  * *   Java 1 Course work (IntelliJ Idea)
- * <h5>Java 1 Lesson 3 Домашнее задание/курсовая работа. класс ячейки поля игры морской бой/h5>
+ * <h5>Java 1 курсовая работа. класс ячейки поля игры морской бой/h5>
  * <p>Класс реализует создание и методы работы ячейки игрового полем игры  Морской бой </p>
  * <p>создает одну ячейку поля реализует ее состояния (свободна, занята палубой корабля, палуба разрушена, был выстрел)  и выдачу данных для отображения /p>
  * <p></p>
  * <p> MVC: класс контроллера модели игры</p>
- * <p>методы : </p> <ul>
- * <li>конструктор: создает ячейку со статусом <code>EMPTY</code>  (пустая) </li>
- * <li> <code>getCellState()</code> : возвращает статус ячейки </li>
- * <li>  <code>setCellAsDeck(Ship hhShip)</code>  запоминает ячейку как палубу указанного корабля
- * <li>  <code>setCellNeighbored()</code>  устанавливает ячейку как соседнюю с каким то кораблем
- *
- * <ul>
+ * <p>методы : </p> <dl>
+ * <dt>конструктор:<dt><dd> создает ячейку со статусом <code>EMPTY</code>  (пустая) </dd>
+ * <dt><code>getCellState()</code> :<dt><dd> возвращает статус ячейки </dd>
+ * <dt><code>setCellAsDeck(Ship hhShip)</code> <dt><dd> запоминает ячейку как палубу указанного корабля</dd>
+ * <dt><code>setCellNeighbored()</code> <dt><dd> устанавливает ячейку как соседнюю с каким то кораблем </dd>
+ * <dt><code>fireCell()</code> <dt><dd> обработка выстрела по ячейке @return true если попадание по палубе корабля  </dd>
+ * <dt><code>isNeighbored()</code><dt><dd>  проверяет есть ли корабль по соседству с ячейкой  </dd>
+ * <dt><code>isEmpty()</code> <dt><dd> проверяет пуста ли ячейка  </dd>
+ * <dt><code>isDeck()</code> <dt><dd> проверяет является ли ячейка палубой корабля  </dd>
+ * <dl>
  * @author Sergey Kravchenko
- * @version 0.0
- * @see  Ship, SeaField
- *? Player, ComputerPlayer, TestSeaBattle,
+ * @version 1.0
+ * @see  Ship, SeaField, Player, ComputerPlayer, GameSeaBattle
   *
  */
 public class SeaCell {
@@ -25,22 +26,21 @@ public class SeaCell {
     public enum StateCell {EMPTY, DECK, FIRED, DESTROYED, NEIGHBORED};
     private Ship hShip;
     private StateCell stateCell;
-    public SeaCell () {
-        stateCell = StateCell.EMPTY;
-    }
-    public boolean isEmpty(){return (stateCell==StateCell.EMPTY)?true:false;}
 
-    public boolean isNeighbored(){return (stateCell==StateCell.NEIGHBORED)?true:false;}
+    public SeaCell () { stateCell = StateCell.EMPTY; }
 
-    public boolean isDeck(){return (stateCell==StateCell.DECK)?true:false;}
+    public boolean isEmpty(){return (stateCell==StateCell.EMPTY);}
 
-    public StateCell getCellState(){
-        return stateCell;
-    }
+    public boolean isNeighbored(){return (stateCell==StateCell.NEIGHBORED);}
 
-    public void setCellNeighbored() {
-        stateCell = StateCell.NEIGHBORED;
-    }
+    public boolean isDeck(){return (stateCell==StateCell.DECK);}
+
+    public boolean isDestroyed() {return stateCell==StateCell.DESTROYED;}
+
+    public StateCell getCellState(){ return stateCell; }
+
+    public void setCellNeighbored() {stateCell = StateCell.NEIGHBORED;}
+
     public void setCellAsDeck(Ship hhShip) {
         hShip = hhShip;
         stateCell =StateCell.DECK;
@@ -56,5 +56,4 @@ public class SeaCell {
         else stateCell = StateCell.FIRED;
         return false;  //To change body of created methods use File | Settings | File Templates.
     }
-
 }

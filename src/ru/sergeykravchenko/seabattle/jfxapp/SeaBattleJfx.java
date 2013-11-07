@@ -20,6 +20,7 @@ package ru.sergeykravchenko.seabattle.jfxapp;/**
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -32,17 +33,24 @@ public class SeaBattleJfx extends Application {
 
   public static Scene uiScene;
   public static UIController hInstance = null;   // Front OS/UI Controller
-  public static Player hPlayer, hComputer;  // Player model Controllers
+  public static Player hPlayer;            // main Player model Controller
+  public static ComputerPlayer hComputer;  // 2nd Player model Controller
+  public static Thread hComputerThread;
   public static GameSeaBattle hSeaBattle = null;   // Game model Controller
+  public static JfxController mainJfx;
 
-  private Parent root;
+  private Group root = new Group();
+  private FXMLLoader jfxLoader;
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
         hInstance = new UIController(false);  // from console app for debug only
         hPlayer   = new Player(hInstance);
         hComputer = new ComputerPlayer(hInstance);
         hSeaBattle = new GameSeaBattle(hPlayer,hComputer);
+        hComputerThread = new Thread(hComputer);
+        hComputerThread.setDaemon(true);
+        hComputerThread.start();
 
         launch(args);
     }
@@ -53,25 +61,33 @@ public class SeaBattleJfx extends Application {
     @Override
     public void start(Stage stage) throws Exception {
      //
-        root = FXMLLoader.load(getClass().getResource("seabattle.fxml"));
 
+        jfxLoader = new FXMLLoader(getClass().getResource("seabattle.fxml"));
+        Parent rootP = (Parent) jfxLoader.load();
+
+        mainJfx = ((JfxController) jfxLoader.getController());
         init(stage);
+        root.getChildren().add(rootP);
+
+        mainJfx.fireworkDraws = new FireworkDraws(root);
+        mainJfx.setFireTargeting();
+
 
         stage.show();
-
-     //   play();
+        System.out.println("start:"+Thread.currentThread().getName() + "  Thread! " );
+        mainJfx.fireworkDraws.start();
 
     }
     @Override
     public void stop() {
-        if (JfxController.fireworkDraws!=null)
-            JfxController.fireworkDraws.stop();
+
+            mainJfx.fireworkDraws.stop();
     }
 
     //public void play() { fireworkDraws.start(); }
 
     private void init(Stage stage)  {
-
+        System.out.println("init:"+Thread.currentThread().getName() + "  Thread! " );
         stage.setTitle("FXML Welcome SeaBattle");
         uiScene = new Scene(root);
         stage.setScene(uiScene);
