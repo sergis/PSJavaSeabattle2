@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-background-color 0xccedffff?>
+
+<AnchorPane fx:id="wholeWin" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="729.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ru.sergeykravchenko.seabattle.jfxapp.JfxController">
+  <children>
+    <BorderPane prefHeight="-1.0" prefWidth="760.0" snapToPixel="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <bottom>
+        <HBox fx:id="navyBank" minHeight="-1.0" prefHeight="140.0" prefWidth="723.0">
+          <children>
+            <Label prefWidth="80.0" text="Navy Bank:">
+              <font>
+                <Font name="System Bold Italic" size="14.0" />
+              </font>
+              <HBox.margin>
+                <Insets left="10.0" />
+              </HBox.margin>
+            </Label>
+            <VBox id="VBox" fx:id="ships1dHorizontal" minWidth="55.0" prefHeight="84.0" prefWidth="86.0" style="-fx-fill: FIREBRICK;">
+              <children>
+                <HBox id="HBox" fx:id="ship1d01" alignment="CENTER" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" disable="false" height="24.0" pickOnBounds="false" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="25.0">
+                          <fill>
+                            <Color blue="1.000" green="0.856" red="0.600" fx:id="x2" />
+                          </fill>
+                        </Rectangle>
+                        <ImageView id="submarine" fitHeight="20.0" fitWidth="38.0" mouseTransparent="true" opacity="0.82" pickOnBounds="true" style="-fx-fill:#bebebe;">
+                          <image>
+                            <Image url="@images/submarine01.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+                <HBox id="HBox" fx:id="ship1d02" alignment="CENTER" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" disable="false" height="24.0" pickOnBounds="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="25.0">
+                          <fill>
+                            <Color blue="1.000" green="0.952" red="0.600" fx:id="x4" />
+                          </fill>
+                        </Rectangle>
+                        <ImageView id="" fitHeight="20.0" fitWidth="40.0" mouseTransparent="true" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/submarine01.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+                <HBox id="HBox" fx:id="ship1d03" alignment="CENTER" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" disable="false" fill="$x4" height="24.0" pickOnBounds="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="25.0" />
+                        <ImageView id="" fitHeight="20.0" fitWidth="40.0" mouseTransparent="true" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/submarine01.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+                <HBox id="HBox" fx:id="ship1d04" alignment="CENTER" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" disable="false" fill="$x4" height="24.0" pickOnBounds="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="25.0" />
+                        <ImageView id="" fitHeight="20.0" fitWidth="40.0" mouseTransparent="false" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/submarine01.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+            <VBox id="VBox" fx:id="ships2dHorizontal" alignment="TOP_CENTER" minWidth="52.0" prefHeight="80.0" prefWidth="86.0" style="-fx-fill: #333;">
+              <children>
+                <HBox id="HBox" fx:id="ship2dH01" alignment="CENTER" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" fill="$x4" height="20.0" opacity="0.51" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0" />
+                        <ImageView id="" fitHeight="24.0" fitWidth="60.00001907348633" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/Ship02.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+                <HBox id="HBox" fx:id="ship2dH02" alignment="CENTER" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" fill="$x4" height="20.0" opacity="0.49" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0" />
+                        <ImageView id="" fitHeight="24.0" fitWidth="60.00001907348633" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/Ship02.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+                <HBox id="HBox" fx:id="ship2dH03" alignment="CENTER" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" fill="$x4" height="20.0" opacity="0.49" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0" />
+                        <ImageView id="" fitHeight="24.0" fitWidth="60.00001907348633" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/Ship02.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+              </children>
+              <padding>
+                <Insets bottom="10.0" top="10.0" />
+              </padding>
+            </VBox>
+            <HBox id="HBox" fx:id="ships2dVertical" alignment="CENTER" minWidth="85.9998779296875" prefWidth="85.9998779296875" spacing="5.0">
+              <children>
+                <HBox id="HBox" fx:id="ship2dV01" alignment="TOP_CENTER" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane" alignment="TOP_CENTER" minHeight="92.0" prefHeight="92.0">
+                      <children>
+                        <ImageView id="" fitHeight="50.0" fitWidth="27.625" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/Ship02vert.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" fill="$x4" height="50.0" opacity="0.48" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="20.0" StackPane.alignment="TOP_CENTER" />
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+                <HBox id="HBox" fx:id="ship2dV02" alignment="TOP_CENTER" minWidth="18.9998779296875" prefHeight="80.0" prefWidth="18.9998779296875" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane" alignment="TOP_CENTER" prefHeight="112.0">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" fill="$x4" height="50.0" opacity="0.47" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="20.0" />
+                        <ImageView id="" fitHeight="50.0" fitWidth="28.0" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/Ship02vert.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+                <HBox id="HBox" fx:id="ship2dV03" alignment="TOP_CENTER" minWidth="18.9998779296875" prefHeight="80.0" prefWidth="18.9998779296875" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane" alignment="TOP_CENTER">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" fill="$x4" height="50.0" opacity="0.48" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="20.0" />
+                        <ImageView id="" fitHeight="50.0" fitWidth="27.625" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/Ship02vert.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+              </children>
+            </HBox>
+            <VBox id="VBox" fx:id="ships3dHorizontal" minWidth="52.0" prefHeight="80.0" prefWidth="86.0" style="-fx-fill: #333;">
+              <children>
+                <HBox id="HBox" fx:id="ship3dH01" alignment="CENTER" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" fill="$x4" height="20.0" opacity="0.49" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <ImageView id="siluetteArkanzas" fitHeight="23.999900817871094" fitWidth="77.0" opacity="1.0" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/siluetteArkanzas.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+                <HBox id="HBox" fx:id="ship3dH02" alignment="CENTER" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" fill="$x4" height="20.0" opacity="0.46" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+                        <ImageView id="siluetteArkanzas" fitHeight="23.999900817871094" fitWidth="77.0" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/siluetteArkanzas.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+            <HBox id="HBox" fx:id="ships3dVertical" alignment="CENTER" minWidth="85.9998779296875" prefWidth="85.9998779296875" spacing="5.0">
+              <children>
+                <HBox id="HBox" fx:id="ship3dV01" alignment="BASELINE_CENTER" minWidth="18.9998779296875" prefHeight="80.0" prefWidth="18.9998779296875" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane" prefHeight="77.0">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" fill="$x2" height="77.0" opacity="0.48" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="20.0" />
+                        <ImageView id="" fitHeight="77.0" fitWidth="27.625" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/Ship02vert.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+                <HBox id="HBox" fx:id="ship3dV02" alignment="BASELINE_CENTER" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane" alignment="BASELINE_CENTER" prefHeight="-1.0" HBox.hgrow="SOMETIMES">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" fill="$x2" height="77.0" opacity="0.48" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="20.0" />
+                        <ImageView id="" fitHeight="77.0" fitWidth="27.625" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/Ship02vert.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+              </children>
+            </HBox>
+            <VBox id="VBox" fx:id="ships4dHorizontal" minWidth="52.0" prefHeight="80.0" prefWidth="86.0" style="-fx-fill: #333;">
+              <children>
+                <HBox id="HBox" fx:id="ship4dH01" alignment="TOP_LEFT" prefWidth="110.0" spacing="5.0">
+                  <children>
+                    <StackPane id="StackPane">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" fill="$x2" height="20.0" opacity="0.51" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="90.0">
+                          <rotationAxis>
+                            <Point3D />
+                          </rotationAxis>
+                        </Rectangle>
+                        <ImageView id="siluetteIowa" fitHeight="24.0" fitWidth="110.0" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/siluetteIowa.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                  <padding>
+                    <Insets />
+                  </padding>
+                </HBox>
+              </children>
+              <padding>
+                <Insets bottom="20.0" top="20.0" fx:id="x3" />
+              </padding>
+            </VBox>
+            <HBox id="HBox" fx:id="ships4dVertical" alignment="CENTER" minWidth="-1.0" prefWidth="-1.0" spacing="5.0">
+              <children>
+                <HBox id="HBox" fx:id="ship4dV01" alignment="TOP_CENTER" spacing="5.0" HBox.hgrow="NEVER">
+                  <children>
+                    <StackPane id="StackPane" alignment="CENTER">
+                      <children>
+                        <Rectangle id="" arcHeight="5.0" arcWidth="5.0" fill="$x2" height="80.0" opacity="0.51" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="20.0" StackPane.alignment="CENTER" />
+                        <ImageView id="" fitHeight="100.0" fitWidth="27.625" pickOnBounds="true">
+                          <image>
+                            <Image url="@images/Ship02vert.png" preserveRatio="true" smooth="true" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </StackPane>
+                  </children>
+                </HBox>
+              </children>
+            </HBox>
+            <HBox id="HBox" fx:id="scopeVisor" alignment="BASELINE_CENTER" mouseTransparent="false" prefHeight="50.0" prefWidth="50.0" spacing="5.0">
+              <children>
+                <StackPane id="StackPane" alignment="CENTER" mouseTransparent="false" prefHeight="-1.0" prefWidth="-1.0">
+                  <children>
+                    <Circle fill="#99fff3" opacity="0.48" radius="20.0" stroke="#00cc52" strokeType="INSIDE" strokeWidth="2.0" StackPane.alignment="TOP_CENTER" />
+                    <Circle opacity="0.38" radius="15.0" strokeType="INSIDE" strokeWidth="2.5" StackPane.alignment="CENTER">
+                      <fill>
+                        <Color blue="0.976" green="1.000" red="0.800" fx:id="x7" />
+                      </fill>
+                      <stroke>
+                        <Color blue="0.128" green="0.800" red="0.000" fx:id="x5" />
+                      </stroke>
+                    </Circle>
+                    <Circle fill="$x7" opacity="0.38" radius="7.0" stroke="$x5" strokeType="INSIDE" strokeWidth="2.5" StackPane.alignment="CENTER" />
+                    <Line endX="-52.99998474121094" endY="-0.5058174133300781" startX="-100.0" strokeWidth="2.0">
+                      <stroke>
+                        <Color blue="0.400" green="1.000" red="0.448" fx:id="x6" />
+                      </stroke>
+                    </Line>
+                    <Line endX="-57.03900909423828" endY="0.41878509521484375" rotate="90.0" startX="-100.0" stroke="$x6" strokeWidth="2.0" />
+                  </children>
+                </StackPane>
+              </children>
+            </HBox>
+            <HBox fx:id="bullet" alignment="TOP_LEFT" opacity="0.94" prefHeight="30.0" prefWidth="50.0">
+              <children>
+                <ImageView id="rocketH" fitHeight="20.0" fitWidth="38.0" pickOnBounds="true">
+                  <image>
+                    <Image url="@images/rocketH.png" preserveRatio="true" smooth="true" />
+                  </image>
+                </ImageView>
+              </children>
+            </HBox>
+          </children>
+          <padding>
+            <Insets top="20.0" />
+          </padding>
+        </HBox>
+      </bottom>
+      <center>
+        <HBox fx:id="gameField" alignment="CENTER" prefHeight="260.0000999999975" prefWidth="760.0" BorderPane.alignment="CENTER">
+          <children>
+            <AnchorPane id="AnchorPane" disable="false" prefHeight="286.0" prefWidth="577.0">
+              <children>
+                <StackPane id="StackPane" fx:id="playMapStack" layoutX="-1.0" layoutY="0.0" prefHeight="-1.0" prefWidth="-1.0">
+                  <children>
+                    <ImageView id="28avianavy" fx:id="bkgNavy" fitHeight="337.0" fitWidth="649.0" opacity="0.75" pickOnBounds="true">
+                      <image>
+                        <Image url="@images/28avianavy.jpg" preserveRatio="true" smooth="true" />
+                      </image>
+                    </ImageView>
+                    <GridPane fx:id="playMapGrids" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="650.0">
+                      <children>
+                        <HBox fx:id="namesColsPlayerMap" mouseTransparent="false" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                          <children>
+                            <GridPane fx:id="yMapNames" alignment="TOP_CENTER" disable="false" gridLinesVisible="false" hgap="5.0" opacity="0.77" prefHeight="45.999900000002526" prefWidth="271.9998779296875" style="" visible="true">
+                              <children>
+                                <TextField id="columnMapY" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="A" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                                <TextField id="columnMapY" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="B" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                                <TextField id="columnMapY" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="C" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                                <TextField id="columnMapY" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="D" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                                <TextField id="columnMapY" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="E" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                                <TextField id="columnMapY" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="F" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                                <TextField id="columnMapY" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="G" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                                <TextField id="columnMapY" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="H" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                                <TextField id="columnMapY" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="I" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                                <TextField id="columnMapY" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="J" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="-1.0" percentWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" percentWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" percentWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" percentWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" percentWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" percentWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" percentWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" percentWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" percentWidth="10.0" prefWidth="30.0" />
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="20.0" percentWidth="10.0" prefWidth="30.0" />
+                              </columnConstraints>
+                              <padding>
+                                <Insets bottom="20.0" />
+                              </padding>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                              <HBox.margin>
+                                <Insets />
+                              </HBox.margin>
+                            </GridPane>
+                          </children>
+                        </HBox>
+                        <VBox fx:id="namesRowsPlayerMap" prefHeight="230.0" prefWidth="47.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                          <children>
+                            <GridPane>
+                              <children>
+                                <TextField opacity="0.76" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                                <TextField prefWidth="20.0" style="-fx-background-color: lightgreen;" text="1" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                <TextField prefWidth="20.0" style="-fx-background-color: lightgreen;" text="2" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <TextField prefWidth="20.0" style="-fx-background-color: lightgreen;" text="3" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                                <TextField prefWidth="20.0" style="-fx-background-color: lightgreen;" text="4" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                <TextField prefWidth="20.0" style="-fx-background-color: lightgreen;" text="5" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                                <TextField prefWidth="20.0" style="-fx-background-color: lightgreen;" text="6" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                                <TextField prefWidth="20.0" style="-fx-background-color: lightgreen;" text="7" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                                <TextField prefWidth="20.0" style="-fx-background-color: lightgreen;" text="8" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+                                <TextField prefWidth="20.0" style="-fx-background-color: lightgreen;" text="9" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="200.0" />
+                              </columnConstraints>
+                              <padding>
+                                <Insets left="15.0" right="15.0" fx:id="x1" />
+                              </padding>
+                              <rowConstraints>
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                          <children>
+                            <GridPane padding="$x1">
+                              <children>
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="1" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="2" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="3" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="4" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="5" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="6" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="7" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="8" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="9" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="100.0" />
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                        </VBox>
+                        <GridPane fx:id="playerMap" alignment="CENTER" gridLinesVisible="true" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#playerMapClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: LAWNGREEN;&#10;-fx-border-width: 1px;" visible="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="NEVER" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="NEVER" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="NEVER" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="NEVER" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="NEVER" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="NEVER" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="NEVER" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="NEVER" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="NEVER" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="NEVER" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="NEVER" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="NEVER" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="NEVER" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="NEVER" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="NEVER" />
+                          </rowConstraints>
+                        </GridPane>
+                        <GridPane fx:id="targetMap" depthTest="INHERIT" gridLinesVisible="true" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="false" pickOnBounds="true" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: LAWNGREEN;&#10;-fx-border-width: 1px;&#10;" visible="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="20.0" prefWidth="30.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                        <HBox fillHeight="true" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                          <children>
+                            <GridPane alignment="TOP_CENTER" gridLinesVisible="false" hgap="5.0" prefHeight="52.000099999997474">
+                              <children>
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="A" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="B" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="C" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="D" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="E" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="F" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="G" GridPane.columnIndex="6" GridPane.rowIndex="0" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="H" GridPane.columnIndex="7" GridPane.rowIndex="0" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="I" GridPane.columnIndex="8" GridPane.rowIndex="0" />
+                                <TextField opacity="0.82" prefWidth="20.0" style="-fx-background-color: lightgreen;" text="J" GridPane.columnIndex="9" GridPane.rowIndex="0" />
+                              </children>
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="30.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="20.0" prefWidth="30.0" />
+                              </columnConstraints>
+                              <padding>
+                                <Insets bottom="20.0" />
+                              </padding>
+                              <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                        </HBox>
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="40.0" prefWidth="60.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="100.0" prefWidth="280.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="40.0" prefWidth="60.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="324.0" minWidth="100.0" prefWidth="280.0" />
+                      </columnConstraints>
+                      <rotationAxis>
+                        <Point3D />
+                      </rotationAxis>
+                      <rowConstraints>
+                        <RowConstraints maxHeight="51.0" minHeight="-Infinity" prefHeight="46.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="223.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                  </children>
+                </StackPane>
+              </children>
+            </AnchorPane>
+          </children>
+        </HBox>
+      </center>
+      <padding>
+        <Insets />
+      </padding>
+      <top>
+        <HBox fx:id="topHeader" pickOnBounds="false" snapToPixel="true">
+          <children>
+            <ImageView fx:id="shipWheel" fitHeight="77.00000762939453" fitWidth="77.0" pickOnBounds="true">
+              <image>
+                <Image url="@images/shipWheel.jpg" preserveRatio="true" smooth="true" />
+              </image>
+              <HBox.margin>
+                <Insets />
+              </HBox.margin>
+            </ImageView>
+            <StackPane id="StackPane" fx:id="consoleMessages">
+              <children>
+                <ListView fx:id="console" prefHeight="64.0" prefWidth="333.0" />
+                <VBox id="VBox" alignment="CENTER" prefHeight="78.0" prefWidth="413.0" spacing="5.0" />
+              </children>
+              <padding>
+                <Insets left="10.0" right="10.0" />
+              </padding>
+            </StackPane>
+            <AnchorPane id="AnchorPane" prefHeight="51.0" prefWidth="272.0">
+              <children>
+                <VBox id="VBox" alignment="CENTER" layoutX="0.0" layoutY="0.0" spacing="5.0">
+                  <children>
+                    <HBox id="HBox" alignment="TOP_CENTER" spacing="5.0" style="-fx-font-weight:bold;">
+                      <children>
+                        <ToggleButton id="FireTButton" fx:id="fireToggleB" alignment="TOP_CENTER" contentDisplay="LEFT" disable="false" mnemonicParsing="false" onAction="#fireToggleButton" selected="false" text="Play" textAlignment="JUSTIFY" textFill="RED" underline="false" />
+                      </children>
+                      <padding>
+                        <Insets left="5.0" right="5.0" />
+                      </padding>
+                    </HBox>
+                  </children>
+                </VBox>
+                <MenuBar fx:id="mainMenuBar" layoutX="54.0" layoutY="2.0" prefWidth="149.0">
+                  <menus>
+                    <Menu mnemonicParsing="false" text="Game">
+                      <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuPlayItem" text="Play" fx:id="menuPlay" />
+                        <MenuItem mnemonicParsing="false" onAction="#menuStopItem" text="Stop" fx:id="menuStop" />
+                        <MenuItem mnemonicParsing="false" onAction="#menuLoadItem" text="Load" fx:id="menuLoad" />
+                        <MenuItem mnemonicParsing="false" onAction="#menuSaveItem" text="Save" fx:id="menuSave" />
+                        <MenuItem mnemonicParsing="false" onAction="#menuQuitItem" text="Quit" />
+                      </items>
+                    </Menu>
+                    <Menu mnemonicParsing="false" text="Tune">
+                      <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuPlaceShip" text="Place Ship" fx:id="menuPlaceShip" />
+                        <MenuItem mnemonicParsing="false" onAction="#menuRemoveShip" text="Remove Ship" fx:id="menuRemoveShip" />
+                        <MenuItem mnemonicParsing="false" onAction="#menuRotateShip" text="Rotate Ship" fx:id="menuRotateShip" />
+                        <MenuItem mnemonicParsing="false" onAction="#menuPlaceShipsAuto" text="Place Ship Randomly" fx:id="menuPlaceShipsAuto" />
+                      </items>
+                    </Menu>
+                    <Menu mnemonicParsing="false" text="Help">
+                      <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuAbout" text="About" />
+                      </items>
+                    </Menu>
+                  </menus>
+                </MenuBar>
+              </children>
+            </AnchorPane>
+          </children>
+        </HBox>
+      </top>
+    </BorderPane>
+  </children>
+  <padding>
+    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+  </padding>
+</AnchorPane>
