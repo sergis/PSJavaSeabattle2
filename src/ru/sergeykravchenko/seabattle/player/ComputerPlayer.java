@@ -189,7 +189,7 @@ public class ComputerPlayer  extends Player implements Callable {
     // @param direction = 1 если установка д. идти влево от lastX,LastY и -1 если вправо
     // @param lastX,lastY координаты ячейки слева или справа от последней пораженной
     private void setNeighborsHorizontally(int direction, int lastX, int lastY) {
-        System.out.println("Horizontal Neighbors around lastX:"+lastX+" lastY:"+lastY);
+    //    System.out.println("Horizontal Neighbors around lastX:"+lastX+" lastY:"+lastY);
         for (int i = 0; i < 6; i++) {
             setCellNeighbored(playerSea[1], lastX - direction * i, lastY - 1);
   //          System.out.println("HN i:"+i+" lX:"+(lastX- direction * i)+" lY:"+(lastY-1));
