@@ -3,6 +3,7 @@ package ru.sergeykravchenko.seabattle.jfxapp;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
+import java.util.concurrent.*;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -19,7 +20,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
 import ru.sergeykravchenko.seabattle.gameseabattle.Ship;
 import ru.sergeykravchenko.seabattle.player.Player;
  /*
@@ -52,9 +52,10 @@ import ru.sergeykravchenko.seabattle.player.Player;
 
 public class JfxController {
 
-    static int xpos,ypos, xadd,yadd;
+    static int xpos,ypos;
     public static FireworkDraws fireworkDraws;  // Firework field to draw
     JfxAnimations jfxAnimatons ;
+
     @FXML
     public StackPane playMapStack;
 
@@ -202,7 +203,7 @@ public class JfxController {
     @FXML
     private  StackPane consoleMessages;
 
-    void showMessage(String msg) {
+    public void showMessage(String msg) {
         //message.setText(msg);
         showOnConsole(msg);
     }
@@ -214,6 +215,8 @@ public class JfxController {
 
             fireToggleB.setText("Fire!");
             jfxAnimatons = new JfxAnimations(this);
+            computerTurn = new LinkedBlockingQueue<Future<int[]>>() ;
+            computerTurnLog= new ArrayList<int[]>();
             placeNavyAuto();
             menuPlaceShipsAuto.setDisable(true);
 
@@ -305,7 +308,6 @@ public class JfxController {
             SeaBattleJfx.hInstance.renderSeaFieldConsole(SeaBattleJfx.hPlayer);
             SeaBattleJfx.hInstance.renderSeaFieldConsole(SeaBattleJfx.hComputer);
             // render ships on the field
-
             for (Ship hShip : SeaBattleJfx.hPlayer.getPlayerNavyArray()) {
                 List<Node> nodeList;
                 switch (hShip.getDecksOnShip()) {
@@ -332,14 +334,12 @@ public class JfxController {
                     Iterator<Node> nodeIterator = nodeList.iterator();
                     if (nodeIterator.hasNext()) {
                         Node shipBox = nodeIterator.next();
-
                         playerMap.getChildren().add(shipBox);
                         if (hShip.isVertical())
                             playerMap.setConstraints(shipBox, hShip.getxCoordinate(), hShip.getyCoordinate(),
                                     1, hShip.getDecksOnShip(),
                                     HPos.CENTER, VPos.TOP);
                         else playerMap.setConstraints(shipBox, hShip.getxCoordinate(), hShip.getyCoordinate());
-
                     }
                 }
             }
@@ -364,16 +364,33 @@ public class JfxController {
 
     @FXML
     void menuAbout(ActionEvent event) {
+        showAbout();
+    }
+
+    private void showAbout() {
+        showMessage("(c)2013 Sergey Kravchenko.Java1 course work. www.prog-school.ru");
     }
 
     @FXML
     void initialize() {
         assert bkgNavy != null : "fx:id=\"bkgNavy\" was not injected: check your FXML file 'seabattle.fxml'.";
+        assert bullet != null : "fx:id=\"bullet\" was not injected: check your FXML file 'seabattle.fxml'.";
+        assert console != null : "fx:id=\"console\" was not injected: check your FXML file 'seabattle.fxml'.";
+        assert consoleMessages != null : "fx:id=\"consoleMessages\" was not injected: check your FXML file 'seabattle.fxml'.";
         assert fireToggleB != null : "fx:id=\"fireToggleB\" was not injected: check your FXML file 'seabattle.fxml'.";
         assert gameField != null : "fx:id=\"gameField\" was not injected: check your FXML file 'seabattle.fxml'.";
         assert mainMenuBar != null : "fx:id=\"mainMenuBar\" was not injected: check your FXML file 'seabattle.fxml'.";
+        assert menuLoad != null : "fx:id=\"menuLoad\" was not injected: check your FXML file 'seabattle.fxml'.";
+        assert menuPlaceShip != null : "fx:id=\"menuPlaceShip\" was not injected: check your FXML file 'seabattle.fxml'.";
+        assert menuPlaceShipsAuto != null : "fx:id=\"menuPlaceShipsAuto\" was not injected: check your FXML file 'seabattle.fxml'.";
+        assert menuPlay != null : "fx:id=\"menuPlay\" was not injected: check your FXML file 'seabattle.fxml'.";
+        assert menuRemoveShip != null : "fx:id=\"menuRemoveShip\" was not injected: check your FXML file 'seabattle.fxml'.";
+        assert menuRotateShip != null : "fx:id=\"menuRotateShip\" was not injected: check your FXML file 'seabattle.fxml'.";
+        assert menuSave != null : "fx:id=\"menuSave\" was not injected: check your FXML file 'seabattle.fxml'.";
+        assert menuStop != null : "fx:id=\"menuStop\" was not injected: check your FXML file 'seabattle.fxml'.";
         assert namesColsPlayerMap != null : "fx:id=\"namesColsPlayerMap\" was not injected: check your FXML file 'seabattle.fxml'.";
         assert namesRowsPlayerMap != null : "fx:id=\"namesRowsPlayerMap\" was not injected: check your FXML file 'seabattle.fxml'.";
+        assert navyBank != null : "fx:id=\"navyBank\" was not injected: check your FXML file 'seabattle.fxml'.";
         assert playMapGrids != null : "fx:id=\"playMapGrids\" was not injected: check your FXML file 'seabattle.fxml'.";
         assert playMapStack != null : "fx:id=\"playMapStack\" was not injected: check your FXML file 'seabattle.fxml'.";
         assert playerMap != null : "fx:id=\"playerMap\" was not injected: check your FXML file 'seabattle.fxml'.";
@@ -404,6 +421,7 @@ public class JfxController {
         assert ships4dVertical != null : "fx:id=\"ships4dVertical\" was not injected: check your FXML file 'seabattle.fxml'.";
         assert targetMap != null : "fx:id=\"targetMap\" was not injected: check your FXML file 'seabattle.fxml'.";
         assert topHeader != null : "fx:id=\"topHeader\" was not injected: check your FXML file 'seabattle.fxml'.";
+        assert wholeWin != null : "fx:id=\"wholeWin\" was not injected: check your FXML file 'seabattle.fxml'.";
         assert yMapNames != null : "fx:id=\"yMapNames\" was not injected: check your FXML file 'seabattle.fxml'.";
 
     }
@@ -480,40 +498,16 @@ public class JfxController {
                             jfxAnimatons.getQueueFireAnimation().add(pQuery);// animate player fire shot
                             break;
                         }
-
                     if ((fireOnMap(SeaBattleJfx.hPlayer, targetMap, sX, sY,pQuery ))) {
                         if (SeaBattleJfx.hComputer.isDefeated()) {
                             showMessage("You WON. GAME OVER");
-
+                            showAbout();
                         } else {
                             showMessage("Your TURN. FIRE again");
                         }
-                    } else { // Ответный ход TODO: переделать через Game Controller!
-                        SeaBattleJfx.hComputer.setMyTurn(true);
-                        // find firing source
-                        ArrayList<Ship> hCShips = SeaBattleJfx.hComputer.getPlayerNavyArray();
-                        JfxAnimationQuery cQuery = new JfxAnimationQuery();
-
-                        for (Ship ship : hCShips)
-                            if (ship.isInBattle()) {
-                                cQuery.setShip2D(targetMap.localToScene(ship.getxCoordinate() * targetMap.getWidth() / 10 + 5,
-                                                                      ship.getyCoordinate() * targetMap.getHeight() / 10 + 5
-                                                ));
-                                cQuery.setTarget2D(playerMap.localToScene( sX,sY ));
-                                cQuery.setPlay(false);
-                                jfxAnimatons.getQueueFireAnimation().add(cQuery);// animate fire shot
-                                break;
-                            }
-                        // ответный выстрел компьютера
-                        if (fireOnMap(SeaBattleJfx.hComputer, playerMap, sX, sY,cQuery )) {
-                            // компьютер попал
-                            if (SeaBattleJfx.hPlayer.isDefeated()) {
-                                showMessage("Computer WON. GAME OVER");
-                            } else {
-                                showMessage("Computer TURN. It should FIRE again");
-                            }
-                        }
-                      //  SeaBattleJfx.hComputer.setMyTurn(false);
+                    } else { // Ответный ход компьютера
+                        int[] fComputerTurn = new int[2];
+                        computerTurn.add(execThreads.submit(SeaBattleJfx.hComputer));
                     }
                 }
             }
@@ -543,10 +537,58 @@ public class JfxController {
 
         return true; //  попал или надо повторить выстрел
     }
-  //
+    //
+    ExecutorService execThreads = Executors.newCachedThreadPool();
+    Queue<Future<int[]>> computerTurn;
+    ArrayList<int[]> computerTurnLog;
+    int[] nextTurn;
     // every frame method callable to JFX controller from animation timer handler
     public void everyFrameHandler() {
+        if (computerTurn!=null) {
+            for (Future<?> iNextTurn : computerTurn)
+                if (iNextTurn.isDone()) {
 
+                    nextTurn = new int[2];
+                    try {
+                        nextTurn = (int[]) iNextTurn.get();
+                      //  System.out.println("Computer TURN detected" + nextTurn);
+                        computerTurn.remove();
+                        computerTurnLog.add(nextTurn);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();  //ToDO: change body of catch statement
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();  //ToDO: change body of catch statement
+                    }
+                    sX = nextTurn[0]*playerMap.getWidth()/10+5;
+                    sY = nextTurn[1]*playerMap.getHeight()/10+5;
+                    // find firing source
+                    ArrayList<Ship> hCShips = SeaBattleJfx.hComputer.getPlayerNavyArray();
+                    JfxAnimationQuery cQuery = new JfxAnimationQuery();
+
+                    for (Ship ship : hCShips)
+                        if (ship.isInBattle()) {
+                            cQuery.setShip2D(targetMap.localToScene(ship.getxCoordinate() * targetMap.getWidth() / 10 + 5,
+                                    ship.getyCoordinate() * targetMap.getHeight() / 10 + 5
+                            ));
+                            cQuery.setTarget2D(playerMap.localToScene(sX, sY));
+                            cQuery.setPlay(false);
+                            jfxAnimatons.getQueueFireAnimation().add(cQuery);// animate fire shot
+                            break;
+                        }
+                    // ответный выстрел компьютера
+                    if (fireOnMap(SeaBattleJfx.hComputer, playerMap, sX, sY, cQuery)) {
+                        // компьютер попал
+                        if (SeaBattleJfx.hPlayer.isDefeated()) {
+                            showMessage("Computer WON. GAME OVER");
+                            showAbout();
+                        } else {
+                            showMessage("Computer TURN. and FIRE again");
+                            int[] fComputerTurn = new int[2];
+                            computerTurn.add(execThreads.submit(SeaBattleJfx.hComputer));
+                        }
+                    }
+                }
+        }
         if (jfxAnimatons!=null)
             jfxAnimatons.execAnimateFireShot();
    }
@@ -557,4 +599,17 @@ public class JfxController {
     @FXML
     private HBox bullet;
     public HBox getBullet() {  return bullet; }
+
+    public void setDevMode(boolean devMode) {
+        if (!devMode) {
+            menuRotateShip.setDisable(true);
+            menuRemoveShip.setDisable(true);
+            menuPlaceShip.setDisable(true);
+            menuLoad.setDisable(true);
+            menuSave.setDisable(true);
+            menuPlay.setDisable(true);
+            menuStop.setDisable(true);
+            showAbout();
+        }
+    }
 }

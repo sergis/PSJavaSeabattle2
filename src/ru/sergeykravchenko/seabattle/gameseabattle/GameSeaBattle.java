@@ -60,7 +60,10 @@ public class GameSeaBattle {
          if (hPlayer==hhPlayers[0]) targetPlayer =hhPlayers[1];
             else targetPlayer = hhPlayers[0];
 
-         fireShot = targetPlayer.fireBoom(xTarget, yTarget);
+       fireShot = targetPlayer.fireBoom(xTarget, yTarget);
+       if (fireShot)   // mark player's own target map
+            hPlayer.getTargetSea().getCell(xTarget,yTarget).setDestroyed();
+       else hPlayer.getTargetSea().getCell(xTarget,yTarget).setFired();
      }
     return fireShot;
  }

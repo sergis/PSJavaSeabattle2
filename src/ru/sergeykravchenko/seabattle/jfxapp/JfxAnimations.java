@@ -14,6 +14,7 @@ import javafx.util.Duration;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class JfxAnimations {
     private final JfxController jfxController;// method to draw fire bullet transition
@@ -24,7 +25,7 @@ public class JfxAnimations {
     public JfxAnimations(JfxController jfxController) {
         this.jfxController = jfxController;
         tGridWidth=0;
-        queueFireAnimation = new LinkedList<JfxAnimationQuery>();
+        queueFireAnimation = new LinkedBlockingQueue<JfxAnimationQuery>();//LinkedList<JfxAnimationQuery>();
         path = new Path();
         pathTransition = new PathTransition();
         jfxController.getWholeWin().getChildren().add(path);

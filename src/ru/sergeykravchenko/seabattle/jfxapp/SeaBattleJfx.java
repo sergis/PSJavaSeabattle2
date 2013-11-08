@@ -29,6 +29,9 @@ import ru.sergeykravchenko.seabattle.gameseabattle.GameSeaBattle;
 import ru.sergeykravchenko.seabattle.player.ComputerPlayer;
 import ru.sergeykravchenko.seabattle.player.Player;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class SeaBattleJfx extends Application {
 
   public static Scene uiScene;
@@ -38,7 +41,7 @@ public class SeaBattleJfx extends Application {
   public static Thread hComputerThread;
   public static GameSeaBattle hSeaBattle = null;   // Game model Controller
   public static JfxController mainJfx;
-
+  // public static ExecutorService execThreads = Executors.newCachedThreadPool();
   private Group root = new Group();
   private FXMLLoader jfxLoader;
 
@@ -48,9 +51,10 @@ public class SeaBattleJfx extends Application {
         hPlayer   = new Player(hInstance);
         hComputer = new ComputerPlayer(hInstance);
         hSeaBattle = new GameSeaBattle(hPlayer,hComputer);
-        hComputerThread = new Thread(hComputer);
-        hComputerThread.setDaemon(true);
-        hComputerThread.start();
+        // hComputerThread = new Thread(hComputer);
+        // hComputerThread.setDaemon(true);
+        // hComputerThread.start();
+
 
         launch(args);
     }
@@ -76,7 +80,9 @@ public class SeaBattleJfx extends Application {
         stage.show();
         System.out.println("start:"+Thread.currentThread().getName() + "  Thread! " );
         mainJfx.fireworkDraws.start();
-
+        mainJfx.showMessage("Game is about to START! ");
+        mainJfx.showMessage("Press PLAY button to play with automatic ship placement.");
+        mainJfx.setDevMode(false);
     }
     @Override
     public void stop() {

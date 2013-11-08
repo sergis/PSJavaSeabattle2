@@ -9,6 +9,7 @@ package ru.sergeykravchenko.seabattle.gameseabattle;
  * <p>методы : </p> <dl>
  * <dt>конструктор:<dt><dd> создает ячейку со статусом <code>EMPTY</code>  (пустая) </dd>
  * <dt><code>getCellState()</code> :<dt><dd> возвращает статус ячейки </dd>
+ * <dt><code>setCellState()</code> :<dt><dd> устанавливает указанный статус ячейки </dd>
  * <dt><code>setCellAsDeck(Ship hhShip)</code> <dt><dd> запоминает ячейку как палубу указанного корабля</dd>
  * <dt><code>setCellNeighbored()</code> <dt><dd> устанавливает ячейку как соседнюю с каким то кораблем </dd>
  * <dt><code>fireCell()</code> <dt><dd> обработка выстрела по ячейке @return true если попадание по палубе корабля  </dd>
@@ -28,6 +29,12 @@ public class SeaCell {
     private StateCell stateCell;
 
     public SeaCell () { stateCell = StateCell.EMPTY; }
+
+    public void setCellState(StateCell cellState) {this.stateCell = cellState;}
+
+    public void setFired() {stateCell=StateCell.FIRED;}
+
+    public void setDestroyed() {stateCell=StateCell.DESTROYED;}
 
     public boolean isEmpty(){return (stateCell==StateCell.EMPTY);}
 
